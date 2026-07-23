@@ -1,0 +1,817 @@
+/* ============================================================
+   SkillReach — style.css  v1.0
+   Concept: Quiet Trust / Pinned Hero / Scroll Overlay
+   Palette: Deep Navy × Muted Gold — calm, credible, intellectual
+   ============================================================ */
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; }
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Blueprint v1.0 — Deep Navy / Quiet Trust Theme */
+  --bg:           #F7F6F3;   /* Warm Off-White base */
+  --bg2:          #F1EFEA;   /* slightly deeper */
+  --bg3:          #EAE7E0;
+  --surface:      #FBFAF8;   /* Article Surface — near white */
+  --surface2:     #F1EFEA;
+
+  --border:       rgba(20,30,40,0.10);
+  --border-light: rgba(20,30,40,0.16);
+
+  --text:         #14181C;   /* navy near-black — NOT pure #000 */
+  --text-muted:   #5B6470;   /* cool mid grey */
+  --text-sub:     #939BA4;   /* cool light grey */
+
+  --accent:       #1F3A5F;   /* deep navy — primary action */
+  --accent-warm:  #3D5A80;   /* mid navy */
+  --gold:         #B08A4E;
+  --green:        #4A7A58;   /* desaturated green */
+
+  --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
+  --font-body: 'Noto Sans JP', 'Inter', sans-serif;
+
+  --radius:     8px;
+  --radius-lg:  16px;
+  --shadow-card:  0 1px 3px rgba(20,30,40,0.07), 0 4px 16px rgba(20,30,40,0.06);
+  --shadow-hover: 0 4px 24px rgba(20,30,40,0.13), 0 0 0 1px rgba(20,30,40,0.06);
+
+  /* Legacy compat */
+  --cream: #F7F6F3; --paper: #F1EFEA; --sand: rgba(20,30,40,0.08);
+  --stone: #939BA4; --bark: #5B6470; --ink: #14181C; --ink-soft: #1F3A5F;
+  --accent-lt: #EDF0F4;
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  /* 横スクロールは overflow-x:hidden で隠さず、はみ出す要素側で解消する。
+     （Heroの人物画像だけは .hero の overflow:hidden で意図的にクリップ） */
+  width: 100%;
+  max-width: 100%;
+  /* Off-White背景：ラジアルグラデーション＋ノイズ＋自然光 */
+  background-color: #F7F6F3;
+  background-image:
+    /* ぼんやりした自然光 — 中央上部から */
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(245,248,252,0.7) 0%, transparent 65%),
+    /* 左下の柔らかい光 */
+    radial-gradient(ellipse 50% 40% at 10% 90%, rgba(225,232,240,0.4) 0%, transparent 60%),
+    /* 微細ノイズテクスチャ */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 100% 100%, 200px 200px;
+  background-repeat: no-repeat, no-repeat, repeat;
+}
+/* Lenis公式推奨CSS — ネイティブスクロールとLenis仮想スクロールの
+   位置ズレ（Hero pin中のカクつき/流れ）を防ぐ */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+html { width: 100%; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+img, picture, svg, video, canvas, iframe { max-width: 100%; display: block; }
+img, video, canvas { height: auto; }
+/* 長い資格名・URL・英数字が親要素を押し広げないようにする。
+   日本語が不自然に切れる word-break: break-all は使わない。 */
+h1, h2, h3, p, li, td, th, a, .card-excerpt { overflow-wrap: anywhere; word-break: normal; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.5s, border-color 0.5s;
+}
+.site-header.scrolled {
+  background: rgba(247,245,241,0.88);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner { display: flex; align-items: center; height: 60px; gap: 32px; }
+.logo {
+  font-family: var(--font-sans); font-size: 1rem; font-weight: 700;
+  letter-spacing: 0.08em; color: var(--text); flex-shrink: 0;
+}
+.logo span { color: var(--accent-warm); }
+.nav { display: flex; gap: 28px; margin-left: auto; }
+.nav a {
+  font-family: var(--font-sans); font-size: 0.75rem; font-weight: 500;
+  color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav a:hover { color: var(--text); }
+.menu-toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  /* 44px以上のタップ領域を確保（見た目のバーの大きさは変えない） */
+  width: 44px; height: 44px; padding: 0;
+  margin-left: auto;
+  align-items: center; justify-content: center;
+  flex-direction: column; gap: 5px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.menu-toggle span {
+  display: block; width: 20px; height: 1px;
+  background: var(--text); border-radius: 1px; transition: all 0.2s;
+}
+.menu-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* 展開中は状態が視覚的に分かるようにする（×形＋薄い背景） */
+.menu-toggle[aria-expanded="true"] { background: rgba(31,58,95,0.08); }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-nav {
+  display: none; flex-direction: column;
+  background: rgba(247,245,241,0.97);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid var(--border); padding: 12px 24px 20px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: var(--font-sans); font-size: 0.95rem;
+  color: var(--text); padding: 14px 4px;
+  min-height: 48px; display: flex; align-items: center;
+  border-bottom: 1px solid var(--border); letter-spacing: 0.05em;
+}
+.mobile-nav a:last-child { border-bottom: none; }
+
+/* ===================================================
+   HERO
+   常時position:fixedで背景に固定する（JS不要・常に確実）。
+   GSAPのpin/pin-spacer方式は「pin解除後に一緒にスクロールし
+   始める」不具合が再発したため廃止。Heroはページの最後まで
+   背景として残り続ける。
+   =================================================== */
+.hero {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1;
+}
+
+/* Warm noise + glow background */
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    /* 人物の顔付近 — ほぼ白 → 外側クリームへ放射状 */
+    radial-gradient(ellipse 55% 50% at 65% 42%, #FFFFFF 0%, rgba(255,255,255,0.85) 20%, rgba(247,246,243,0.5) 50%, transparent 75%),
+    /* 周辺を締めるクリームベース */
+    radial-gradient(ellipse 100% 100% at 55% 40%, #F7F6F3 0%, #EDEAE3 60%, #E4E0D8 100%);
+}
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  /* 紙のような微細テクスチャ */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+}
+/* 旧::after（下部の不透明グラデーション）は削除。
+   content-sectionが半透明になった今は、このグラデーションが
+   そのまま帯として透けて見えてしまうため。 */
+/* ===================================================
+   HERO SEARCH — 「最新レビューを読む」ボタンがあった位置に配置。
+   余計な見出し文言は置かず、入力欄のみ
+   =================================================== */
+.hero-search {
+  position: relative;
+  /* hero-text-overlay > * の width:min(280px,88%) をそのまま使う */
+}
+.hero-search svg {
+  position: absolute; left: 16px; top: 50%;
+  transform: translateY(-50%);
+  color: rgba(60,50,40,0.45);
+  pointer-events: none;
+}
+.hero-search input {
+  width: 100%;
+  padding: 12px 18px 12px 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(60,50,40,0.18);
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text);
+  outline: none;
+  pointer-events: all;
+  transition: border-color 0.2s, background 0.2s;
+}
+.hero-search input::placeholder { color: rgba(60,50,40,0.45); }
+.hero-search input:focus {
+  border-color: var(--accent-warm);
+  background: rgba(255,255,255,0.78);
+}
+
+/* ===================================================
+   HERO POSTER — grid layout container
+   左列: テキスト / 右列: 人物
+   二者を一つのレイアウトシステムで管理し
+   ポスター的な構図を実現する
+   =================================================== */
+.hero-poster {
+  /* コンテナ幅に揃えて中央配置。
+     PC専用の右+60pxシフトは下の min-width:1025px メディアクエリで適用 */
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 24px;
+  z-index: 2;
+
+  /* 2列grid: テキスト38% / 人物62% */
+  display: grid;
+  grid-template-columns: 38fr 62fr;
+  grid-template-rows: 1fr;
+  align-items: stretch;
+}
+
+/* PC専用: hero全体を右に60pxシフト（ユーザー確定位置）。
+   モバイル・タブレットには適用しない */
+@media (min-width: 1025px) {
+  .hero-poster { transform: translateX(calc(-50% + 60px)); }
+}
+
+
+
+/* Hero image */
+.hero-image-wrap {
+  /* grid右列 — 画像専用コンテナ */
+  position: relative;           /* absolute独立から解放 */
+  display: flex;
+  align-items: flex-start;      /* 頭の高さを上端に固定 */
+  justify-content: flex-end;    /* 画像右端をwrap右境界に固定 */
+  padding-top: 0;
+  margin-left: -125px;          /* グリッド列幅を保ったまま人物を左へ */
+  margin-right: 108px;          /* wrap右境界を「覧」右端に揃える */
+  will-change: transform, opacity, filter;
+  overflow: hidden;
+}
+.hero-image-wrap img {
+  /* 高さ基準で拡大（幅は縦横比に合わせて自動算出） */
+  width: auto;
+  max-width: none;
+  height: 92vh;
+  max-height: 92vh;
+  object-fit: contain;
+  object-position: top center;
+  mix-blend-mode: multiply;     /* 白背景を透過させ人物だけ浮かぶ */
+  filter: none;
+  pointer-events: none; user-select: none;
+  display: block;
+  /* 下端・左下の写真エッジを背景へフェードさせる */
+  -webkit-mask-image:
+    linear-gradient(to bottom, #000 78%, transparent 98%),
+    linear-gradient(to left, #000 82%, transparent 100%);
+  -webkit-mask-composite: source-in, source-in;
+  mask-image:
+    linear-gradient(to bottom, #000 78%, transparent 98%),
+    linear-gradient(to left, #000 82%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* Hero text */
+.hero-text-overlay {
+  /* grid左列 — テキスト専用コンテナ */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* 右端基準で配置 — padding-leftは使わない */
+  /* padding-bottomを増やしてテキストブロックを上に持ち上げる
+     （「本音のガジェットレビュー」がHeroの鼻あたりに来るバランス） */
+  padding: 0 0 42vh 0;
+  transform: translateX(2vw);
+  align-items: flex-end;        /* テキストを列の右端（=Hero中央）に寄せる */
+  pointer-events: none;
+  will-change: opacity, transform;
+  opacity: 1;
+  /* visibility:hiddenはopacityのtransitionと同時に即時切り替わり、
+     フェードする前に消えて見える原因になるため使用しない。
+     opacityのtransitionのみで滑らかにフェードアウトさせる。 */
+  transition: opacity 0.6s ease;
+}
+.hero-text-overlay.is-hidden {
+  opacity: 0;
+}
+
+/* テキストブロック幅 — 右端基準で自然に収まる幅 */
+.hero-text-overlay > * {
+  width: min(340px, 100%);
+  text-align: left;
+}
+.hero-eyebrow {
+  font-family: var(--font-sans); font-size: 0.65rem; font-weight: 600;
+  color: rgba(60,50,40,0.45); letter-spacing: 0.22em;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.hero-text-overlay h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.45rem, 3.2vw, 2.5rem);
+  font-weight: 700; letter-spacing: -0.03em; line-height: 1.18;
+  white-space: nowrap;
+  color: var(--text); margin-bottom: 11px;  /* 18px → 11px: 39%縮小 */
+  /* 明背景なのでtext-shadowは不要 */
+}
+.hero-sub {
+  font-size: 0.88rem; color: rgba(60,50,40,0.6);
+  line-height: 1.85; margin-bottom: 28px;
+}
+.btn-primary {
+  /* .hero-text-overlay > * の width:min(280px,88%)を打ち消し、
+     ピル型ボタンは常にテキストに合わせた幅にする */
+  width: auto;
+  display: inline-block;
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-sans); font-weight: 600; font-size: 0.78rem;
+  padding: 11px 28px; border-radius: 999px; letter-spacing: 0.1em;
+  text-transform: uppercase; pointer-events: all;
+  border: 1px solid rgba(212,201,184,0.35);
+  transition: all 0.25s;
+  backdrop-filter: blur(8px);
+}
+.btn-primary:hover {
+  background: rgba(212,201,184,0.12);
+  border-color: rgba(212,201,184,0.6);
+  color: #fff; transform: translateY(-1px);
+}
+
+/* Scroll hint */
+.hero-scroll-hint {
+  position: absolute; z-index: 4; bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--text-sub); font-family: var(--font-sans);
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  animation: scrollBounce 2.6s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+.hero-scroll-hint svg { opacity: 0.3; }
+@keyframes scrollBounce {
+  0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.4; }
+  50%      { transform: translateX(-50%) translateY(7px); opacity: 0.8; }
+}
+
+/* ===================================================
+   CONTENT SECTION
+   Heroはposition:fixedで背景に固定されている。
+   content-sectionはHeroの高さ分だけmargin-topを設けて
+   通常フローでHeroの下から始まる。
+   GSAPがtranslateYでHero上にせり上がる演出をする。
+   =================================================== */
+.content-section {
+  /* Heroはfixedで背景に固定済みなので、通常フロー(relative)に
+     margin-topでHeroの高さ分の間隔を空けるだけでよい。
+     pin-spacerやstickyは不要（不具合の原因になるため使用禁止）。 */
+  position: relative;
+  z-index: 10;
+  margin-top: 100vh;
+
+  /* Surface背景 — 半透明グラスパネル。Heroが背後に薄く透けて見える。
+     カテゴリ上部の自然光グラデーションは削除（ユーザー指定）。 */
+  background-color: rgba(248,246,242, 0.98);
+  background-image:
+    /* 全体の暖かさのみ残す */
+    radial-gradient(ellipse 70% 50% at 30% 40%, rgba(250,246,238,0.25) 0%, transparent 70%);
+
+  /* 上辺のみ大きめの角丸（展示パネル） */
+  border-radius: 44px 44px 0 0;
+  padding-top: 72px;
+
+  /* 展示パネルのShadow — 極めて自然
+     注意: 以前あった「0 -80px 100px」の広域グラデーション層は、
+     半透明パネルの上では帯として透けて見えるため削除済み。 */
+  box-shadow:
+    0 -1px 0 rgba(180,160,130,0.12),          /* 上辺の細線 */
+    0 -24px 48px rgba(200,185,160,0.14);       /* 柔らかい浮遊感 */
+
+  /* Backdrop blur強め — 半透明でも文字の可読性を保つガラス効果 */
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+
+  will-change: transform;
+}
+/* 旧::before（境界ぼかし用グラデーション）は削除。
+   Surface自体が半透明になったことで不要となり、むしろ
+   カード上に余分な濃淡の帯として見えてしまうため。 */
+/* Warm noise on content */
+.content-section::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+  background-size: 280px 280px;
+  border-radius: 44px 44px 0 0;
+}
+.content-section > * { position: relative; z-index: 1; }
+
+/* ===== CATEGORIES ===== */
+.categories {
+  padding: 14px 0 36px;
+  scroll-margin-top: 80px; /* 固定ヘッダーに隠れないよう余白を確保 */
+  /* 検索・スクロール中もカテゴリボタンが隠れないよう上部に固定 */
+  position: sticky;
+  top: 60px; /* 固定ヘッダーの高さ分 */
+  z-index: 20;
+  background: rgba(247,245,241, 0.92);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+.cat-list { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; justify-content: center; }
+.cat-list::-webkit-scrollbar { display: none; }
+.cat-btn {
+  flex-shrink: 0;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600;
+  padding: 7px 18px; border-radius: 999px; cursor: pointer;
+  letter-spacing: 0.07em; transition: all 0.18s;
+}
+.cat-btn:hover { border-color: var(--border-light); color: var(--text); }
+.cat-btn.active { background: var(--accent); border-color: var(--accent); color: #F7F6F3; }
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+  font-family: var(--font-sans); font-size: 0.65rem; font-weight: 700;
+  color: var(--text-sub); letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 36px;
+  display: flex; align-items: center; gap: 14px;
+}
+.section-title::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+/* ===== ARTICLES ===== */
+.articles { padding: 0 0 88px; scroll-margin-top: 190px; /* 固定ヘッダー＋固定カテゴリバー分の余白を確保 */ }
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.article-card.more-hidden { display: none; }
+
+.show-more-wrap { display: flex; justify-content: center; margin-top: 40px; }
+.btn-show-more {
+  display: inline-block;
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-sans); font-weight: 600; font-size: 0.78rem;
+  padding: 11px 32px; border-radius: 999px; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer;
+  border: 1px solid var(--border-light);
+  transition: all 0.25s;
+}
+.btn-show-more:hover {
+  background: rgba(60,50,40,0.05);
+  border-color: var(--accent-warm);
+}
+
+/* Card — initially invisible, JS adds .visible */
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.35s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.35s,
+    border-color 0.35s;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: transform, opacity;
+}
+.article-card.visible {
+  opacity: 1; transform: translateY(0);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.35s,
+    border-color 0.35s;
+}
+.article-card:hover {
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-5px) !important;
+}
+.article-card:hover .card-img img { transform: scale(1.035); }
+
+.card-img {
+  width: 100%; aspect-ratio: 4/3;
+  background: var(--surface2); overflow: hidden;
+}
+.card-img img {
+  width: 100%; height: 100%; object-fit: contain; padding: 14px;
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+.card-body { padding: 16px 18px 20px; }
+.card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; }
+.card-body h3 {
+  font-size: 0.84rem; font-weight: 700; line-height: 1.55;
+  margin-bottom: 8px; color: var(--text);
+}
+.card-body h3 a:hover { color: var(--accent); }
+.card-excerpt {
+  font-size: 0.775rem; color: var(--text-muted); line-height: 1.7;
+  margin-bottom: 10px;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.card-score {
+  font-family: var(--font-sans); font-size: 0.72rem;
+  font-weight: 700; color: var(--green);
+}
+
+/* ===== TAG & DATE ===== */
+.tag {
+  display: inline-block;
+  background: rgba(60,50,40,0.08); color: var(--text);
+  font-family: var(--font-sans); font-size: 0.65rem; font-weight: 700;
+  padding: 3px 9px; border-radius: 999px; letter-spacing: 0.06em;
+  border: 1px solid rgba(60,50,40,0.18);
+}
+.tag.sm { font-size: 0.6rem; padding: 2px 7px; }
+.date { font-family: var(--font-sans); font-size: 0.68rem; color: var(--text-sub); }
+
+/* ===== RANKING ===== */
+.ranking {
+  padding: 72px 0;
+  scroll-margin-top: 80px; /* 固定ヘッダーに隠れないよう余白を確保 */
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  /* 記事一覧(Article Surface)と同じ半透明にし、Heroが透けて見えるよう統一 */
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255,248,235,0.25) 0%, transparent 60%);
+}
+.rank-list {
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(248,246,242, 0.55);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+}
+.rank-item {
+  display: flex; align-items: center; gap: 18px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.18s;
+}
+.rank-item:last-child { border-bottom: none; }
+.rank-item:hover { background: var(--surface2); }
+.rank-num {
+  font-family: var(--font-sans); font-size: 1.8rem; font-weight: 800;
+  color: var(--text-sub); width: 40px; text-align: center; flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+.rank-item:nth-child(1) .rank-num { color: var(--gold); }
+.rank-item:nth-child(2) .rank-num { color: #9a9490; }
+.rank-item:nth-child(3) .rank-num { color: #8a7060; }
+.rank-body { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.rank-body a { font-size: 0.87rem; font-weight: 500; color: var(--text); }
+.rank-body a:hover { color: var(--accent); }
+.rank-score {
+  font-family: var(--font-sans); font-size: 0.82rem;
+  font-weight: 700; color: var(--green); flex-shrink: 0;
+}
+
+/* ===== X SECTION ===== */
+.x-section {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+  /* 記事一覧・ランキングと同じ半透明にし、Heroが透けて見えるよう統一 */
+  background: rgba(247,245,241, 0.55);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+}
+.x-inner { max-width: 540px; margin: 0 auto; padding: 0 20px; text-align: center; }
+.x-eyebrow {
+  font-size: 0.65rem; font-weight: 700; color: var(--text-sub);
+  letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px;
+  font-family: var(--font-sans);
+}
+.x-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 28px; line-height: 1.75; }
+.x-embed {
+  border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; background: var(--surface); margin-bottom: 20px;
+}
+.x-follow-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--text); color: var(--bg);
+  font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700;
+  padding: 11px 22px; border-radius: 999px; transition: opacity 0.18s;
+}
+.x-follow-btn:hover { opacity: 0.82; color: var(--bg); }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  padding: 60px 0 36px;
+  /* 記事一覧・ランキング・Xセクションと同じ半透明にし、Heroが透けて見えるよう統一 */
+  background: rgba(237,233,227, 0.55);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
+.footer-inner {
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center; gap: 14px;
+}
+.footer-logo { font-family: var(--font-sans); font-size: 1rem; font-weight: 700; color: var(--text); }
+.footer-logo span { color: var(--accent-warm); }
+.footer-desc { font-size: 0.78rem; color: var(--text-sub); line-height: 1.75; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.footer-links a { font-family: var(--font-sans); font-size: 0.72rem; color: var(--text-sub); transition: color 0.18s; }
+.footer-links a:hover { color: var(--text); }
+.footer-copy { font-family: var(--font-sans); font-size: 0.68rem; color: #B0A898; margin-top: 8px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .menu-toggle { display: flex; }
+
+  /* 左右16pxの安全余白（320pxでも本文幅288pxを確保） */
+  .container { padding: 0 16px; }
+
+  .hero-search input {
+    font-size: 0.9rem;                /* iOSの自動ズームを避けつつ読める大きさ */
+    padding: 13px 16px 13px 38px;
+  }
+
+  /* モバイル: gridを縦積みに変更。PC用のコンテナ幅・paddingもリセット */
+  .hero-poster {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    max-width: none;
+    padding: 0;
+  }
+  .hero-text-overlay {
+    position: relative;
+    justify-content: flex-end;
+    padding: 11vh 16px 3vh;
+    text-align: left;
+    align-items: flex-start;
+    transform: none;  /* デスクトップ用のtranslateX(8vw)をモバイルでは無効化 */
+  }
+  .hero-image-wrap {
+    justify-content: flex-end;    /* 人物を右端ギリギリに寄せる */
+    align-items: flex-end;
+    margin-left: 0;               /* デスクトップ用オフセットをリセット */
+    margin-right: 0;              /* デスクトップ用の右クリップもリセット */
+    /* テキスト列の下端へ食い込ませない（見出し・検索欄と人物が重なるため） */
+    transform: none;
+  }
+  /* 画像はテキスト列を除いた残りの高さに収める。
+     固定vh（65vh）だと画面高によって頭が切れたりテキストへ重なるため、
+     グリッド行の高さ基準（max-height:100%）で追従させる。 */
+  .hero-image-wrap img { height: 92vh; max-height: 100%; }
+  .hero-sub { text-align: left; font-size: 0.9rem; }
+  /* 320pxでも読める見出しサイズ。PC用のnowrapはモバイルでは解除して
+     画面幅内で自然に折り返させる（1文字ずつ折れないよう下限を確保） */
+  .hero-text-overlay h1 {
+    font-size: clamp(1.25rem, 6.2vw, 1.6rem);
+    white-space: normal;
+  }
+  .hero-text-overlay > * { width: 100%; }
+
+  /* カテゴリボタン: 横スクロールも画面外へのはみ出しもさせず、
+     2列グリッドで均等幅に並べる（タップしやすい高さを確保） */
+  .cat-list {
+    display: grid;
+    /* 狭い画面では2列、幅が取れる画面では4ボタンが1行に均等幅で並ぶ */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 132px), 1fr));
+    gap: 8px;
+    overflow-x: visible;
+  }
+  .cat-btn {
+    min-width: 0;
+    min-height: 44px;
+    padding: 8px 10px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  .categories { padding: 12px 0 28px; }
+
+  .content-section { border-radius: 18px 18px 0 0; padding-top: 44px; }
+
+  /* ===== 記事カード: スマホは1列。抜粋は消さず3行まで見せる。
+     幅に余裕がある小型タブレット幅では自然に2列へ戻す ===== */
+  .article-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 14px;
+  }
+  .article-card { display: block; }
+  .card-body { padding: 16px 16px 18px; }
+  .card-meta { gap: 10px; margin-bottom: 10px; }
+  .card-body h3 { font-size: 0.98rem; line-height: 1.6; margin-bottom: 8px; }
+  .card-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    font-size: 0.84rem;
+    line-height: 1.75;
+    margin-bottom: 0;
+  }
+  .tag { font-size: 0.72rem; padding: 4px 10px; }
+  .date { font-size: 0.76rem; }
+  .section-title { font-size: 0.7rem; margin-bottom: 26px; }
+  .btn-show-more { padding: 13px 30px; font-size: 0.85rem; min-height: 46px; }
+
+  /* ===== ランキング: 番号と本文を縦積みにして、
+     長いタイトルが番号や資格区分に潰されないようにする ===== */
+  .ranking { padding: 56px 0; }
+  .rank-item {
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 16px 18px;
+  }
+  .rank-num {
+    width: auto; min-width: 26px; text-align: left;
+    font-size: 1.5rem; line-height: 1.5;
+  }
+  .rank-body { min-width: 0; align-items: flex-start; gap: 6px; }
+  .rank-body .tag.sm { font-size: 0.7rem; padding: 3px 9px; }
+  .rank-body a { font-size: 0.92rem; line-height: 1.7; }
+  .rank-disclaimer { font-size: 0.75rem !important; line-height: 1.8; text-align: left !important; }
+
+  /* ===== フッター ===== */
+  .site-footer { padding: 48px 0 32px; }
+  .footer-desc { font-size: 0.84rem; }
+  .footer-links a { font-size: 0.8rem; padding: 6px 0; }
+  .footer-copy { font-size: 0.74rem; }
+  .x-follow-btn { min-height: 46px; font-size: 0.86rem; }
+  .x-sub { font-size: 0.88rem; }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .article-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* スマホ横向き（高さが低い）では、縦積みレイアウトのままだと
+   Heroの人物画像が極端に小さくなってしまうため、デスクトップに
+   近い左右分割レイアウトに戻してバランスを保つ */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  /* テキストを画面中央に絶対配置、人物を右端に固定 */
+  .hero-poster {
+    display: block;               /* グリッドを廃止 */
+    left: 0;
+    transform: none;
+    max-width: none;
+    padding: 0;
+  }
+  .hero-text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* 画面の正中央 */
+    width: auto;
+    padding: 0;
+    justify-content: center;
+    align-items: flex-start;      /* 各行の左端を揃える */
+    text-align: left;
+    z-index: 3;
+  }
+  .hero-text-overlay > * { width: auto; }
+  .hero-text-overlay h1 { font-size: 1.4rem; white-space: nowrap; }
+  .hero-sub { text-align: left; font-size: 0.78rem; white-space: nowrap; }
+  .hero-search { width: 260px; }
+  .hero-image-wrap {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 45%;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .hero-image-wrap img { max-height: 92vh; width: auto; }
+}
+
+/* ===== ARTICLE PROMO CTA (article-promo.jsが自動挿入) ===== */
+.amazon-music-cta {
+  background: #0a0a0a; border-radius: 12px; padding: 1.5rem;
+  margin: 0 0 2rem; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.75rem; text-align: center;
+}
+.amazon-music-eyebrow { font-size: 0.75rem; color: #999; margin: 0 0 0.25rem; }
+.amazon-music-title { font-weight: 700; font-size: 1rem; margin: 0; color: #fff; }
+.amazon-music-btn {
+  background: #fff; color: #111; font-weight: 700;
+  padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;
+  white-space: nowrap; font-size: 0.9rem; display: inline-block;
+}

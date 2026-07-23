@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techsnap-blog.github.io/skill-reach/sitemap.xml

@@ -1,0 +1,371 @@
+/* ===== ARTICLE PAGE ===== */
+.article-main { padding: 48px 0 72px; }
+/* .amazon-music-cta 等のスタイルはcss/style.cssに統一
+   （article.cssを読み込んでいない記事テンプレートがあるため） */
+
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 0.75rem; color: var(--stone);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 6px;
+}
+.breadcrumb a { color: var(--bark); }
+.breadcrumb a:hover { color: var(--accent); }
+
+/* Header */
+.article-header { margin-bottom: 32px; }
+.article-meta {
+  display: flex; gap: 10px; align-items: center; margin-bottom: 14px;
+}
+.article-header h1 {
+  font-size: clamp(1.3rem, 2.8vw, 1.75rem);
+  font-weight: 700; line-height: 1.35;
+  letter-spacing: -0.02em; margin-bottom: 24px; color: var(--ink);
+}
+
+/* Score block */
+.article-score-block {
+  display: flex;
+  border: 1px solid var(--sand); border-radius: var(--radius);
+  overflow: hidden; margin-bottom: 4px;
+}
+.score-item {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; padding: 12px 6px;
+  background: var(--cream); border-right: 1px solid var(--sand);
+  text-align: center;
+}
+.score-item:last-child { border-right: none; }
+.score-item.total { background: var(--paper); }
+.score-item span {
+  font-family: var(--font-ui);
+  font-size: 0.62rem; color: var(--bark);
+  margin-bottom: 4px; font-weight: 600;
+  letter-spacing: 0.04em; white-space: nowrap;
+}
+.score-item strong {
+  font-family: var(--font-ui);
+  font-size: 1.2rem; font-weight: 800; color: var(--ink);
+}
+.score-item strong.green { color: var(--green); }
+
+/* Product image
+   記事ページには画像マークアップが3パターン混在
+   （.product-img-wrap / .article-hero-img / .hero-img）しているため、
+   全て同じ比率・サイズ規則に統一する。 */
+.product-img-wrap,
+.article-hero-img {
+  width: 100%; border-radius: var(--radius);
+  border: 1px solid var(--sand); margin-bottom: 32px;
+  background: var(--paper); overflow: hidden;
+}
+.product-img-wrap img,
+.article-hero-img img,
+.hero-img {
+  width: 100%; max-height: 360px;
+  object-fit: contain; padding: 24px; display: block;
+  box-sizing: border-box;
+}
+.hero-img {
+  border-radius: var(--radius);
+  border: 1px solid var(--sand); margin-bottom: 32px;
+  background: var(--paper);
+}
+
+/* Content */
+.article-content { font-size: 0.94rem; line-height: 1.9; color: var(--ink); }
+.article-content h2 {
+  font-size: 1.1rem; font-weight: 700;
+  margin: 36px 0 14px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--sand); color: var(--ink);
+}
+.article-content p { margin-bottom: 18px; }
+.article-content strong { font-weight: 700; }
+
+/* Spec table — 基本情報は2列の定義リスト風に、行間を広めに取って視認性を上げる */
+.spec-table {
+  width: 100%; border-collapse: collapse;
+  margin-bottom: 28px; font-size: 0.88rem;
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--sand);
+}
+.spec-table th, .spec-table td {
+  padding: 14px 18px; text-align: left;
+  border-bottom: 1px solid var(--sand);
+  line-height: 1.6;
+}
+.spec-table tr:last-child th, .spec-table tr:last-child td { border-bottom: none; }
+/* 3列以上の表は狭い画面で1列あたり数十pxまで潰れて読めなくなるため、
+   表を縮めるのではなくラッパー内だけを横スクロールさせる。
+   （ページ全体の横スクロールは発生させない） */
+.table-scroll {
+  width: 100%; max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 28px;
+}
+.table-scroll > .spec-table { margin-bottom: 0; }
+.spec-table th {
+  background: var(--paper); color: var(--bark);
+  font-family: var(--font-ui); font-weight: 700;
+  width: 160px; font-size: 0.8rem;
+}
+.spec-table td { background: var(--cream); }
+
+/* Check list — ✓/⚠ アイコンで良い点・注意点を瞬時に判別できるようにする */
+.check-list {
+  list-style: none; padding: 0; margin: 0 0 24px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.check-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 11px 16px; font-size: 0.9rem; line-height: 1.6;
+  border-radius: var(--radius); background: var(--cream);
+}
+.check-list li::before {
+  flex-shrink: 0; width: 20px; height: 20px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; margin-top: 1px;
+}
+.check-list li.is-good::before,
+.check-list li:not(.is-warn)::before {
+  content: "✓"; background: rgba(74,122,88,0.14); color: var(--green);
+}
+.check-list li.is-warn::before {
+  content: "!"; background: rgba(176,138,78,0.16); color: var(--gold);
+}
+
+/* FAQ — 質問と回答をカード状に区切り、全記事で統一した見た目にする */
+.faq-block {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 28px;
+}
+.faq-item {
+  border: 1px solid var(--sand); border-radius: var(--radius);
+  background: var(--cream); padding: 16px 20px;
+}
+.faq-q {
+  font-size: 0.92rem !important; font-weight: 700;
+  margin: 0 0 8px !important; padding: 0 !important;
+  border: none !important; color: var(--ink);
+}
+.faq-a {
+  font-size: 0.88rem; color: var(--bark);
+  margin: 0 !important; line-height: 1.75;
+}
+
+/* Callout */
+.callout {
+  border-radius: var(--radius); padding: 16px 20px;
+  margin-bottom: 24px; border-left: 3px solid;
+}
+.callout.good { background: #f2f7f2; border-color: var(--green); }
+.callout.warn { background: #fdf8f0; border-color: var(--accent); }
+.callout strong {
+  display: block; margin-bottom: 6px;
+  font-size: 0.84rem; font-family: var(--font-ui);
+}
+.callout p { margin-bottom: 0; font-size: 0.84rem; color: var(--bark); }
+
+/* Affiliate box */
+.affiliate-box {
+  background: var(--accent-lt);
+  border: 1px solid #ddc99a;
+  border-radius: var(--radius);
+  padding: 24px; margin-top: 36px; text-align: center;
+}
+.affiliate-label {
+  font-size: 0.875rem; font-weight: 700;
+  margin-bottom: 16px; color: var(--ink);
+  font-family: var(--font-ui);
+}
+.affiliate-btns {
+  display: flex; gap: 12px; justify-content: center;
+  margin-bottom: 12px; flex-wrap: wrap;
+}
+.aff-btn {
+  display: inline-block; padding: 11px 28px;
+  border-radius: 999px; font-family: var(--font-ui);
+  font-size: 0.875rem; font-weight: 700;
+  transition: all 0.15s;
+}
+.aff-btn:hover { transform: translateY(-1px); opacity: 0.88; }
+.aff-btn.amazon { background: #ff9900; color: #111; }
+.aff-btn.rakuten { background: #bf0000; color: #fff; }
+.aff-btn.primary { background: var(--accent); color: #fff; }
+.aff-btn.ohara { background: #3D5A80; color: #fff; }
+.aff-btn.crail { background: #4472A0; color: #fff; }
+.aff-btn.tac { background: #6E7F8D; color: #fff; }
+.affiliate-note {
+  font-family: var(--font-ui);
+  font-size: 0.7rem; color: var(--bark); margin-bottom: 0;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar { position: sticky; top: 76px; }
+.sidebar-widget {
+  background: var(--cream); border: 1px solid var(--sand);
+  border-radius: var(--radius); padding: 18px; margin-bottom: 18px;
+}
+.widget-title {
+  font-family: var(--font-ui);
+  font-size: 0.68rem; font-weight: 700;
+  color: var(--bark); letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.sidebar-score-list { list-style: none; }
+.sidebar-score-list li {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+  padding: 10px 0; font-size: 0.82rem;
+  border-bottom: 1px solid var(--sand);
+  font-family: var(--font-ui);
+}
+.sidebar-score-list li:last-child { border-bottom: none; }
+.sidebar-score-list li > span {
+  flex-shrink: 0; color: var(--bark); padding-top: 1px;
+}
+.sidebar-score-list strong {
+  font-weight: 700; text-align: right;
+  flex: 1 1 auto; min-width: 0; line-height: 1.5;
+}
+.sidebar-list { list-style: none; }
+.sidebar-list li { border-bottom: 1px solid var(--sand); }
+.sidebar-list li:last-child { border-bottom: none; }
+.sidebar-list a {
+  display: block; padding: 9px 0;
+  font-size: 0.82rem; color: var(--bark); transition: color 0.15s;
+}
+.sidebar-list a:hover { color: var(--accent); }
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  /* 記事ページのヘッダーは、fixedのままだと本文に重なるため
+     通常フロー（static）に戻して重なりを解消する。
+     以前は display:none にしていたが、モバイルからナビゲーションへ
+     到達できなくなるため復帰させた。 */
+  .site-header {
+    position: static;
+    background: rgba(247,245,241,0.92);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header .header-inner { height: 52px; }
+
+  .article-main { padding: 24px 0 48px; }
+  /* grid子要素が表などの中身で押し広げられないようにする */
+  .article-layout { grid-template-columns: minmax(0, 1fr); }
+  .article-layout > * { min-width: 0; }
+  .sidebar { position: static; display: none; }
+
+  .article-header h1 { line-height: 1.45; }
+  .article-content { font-size: 0.97rem; line-height: 1.9; }
+  .article-content h2 { font-size: 1.05rem; line-height: 1.6; }
+
+  /* スコアブロック: 5項目を横一列に詰めるとラベルが極小になるため
+     2列（合計は全幅）に組み替える */
+  .article-score-block { flex-wrap: wrap; }
+  .score-item {
+    flex: 1 1 50%; min-width: 0;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--sand);
+  }
+  .score-item span { font-size: 0.72rem; white-space: normal; }
+  .score-item strong { font-size: 1.05rem; }
+  .score-item.total { flex-basis: 100%; border-right: none; border-bottom: none; }
+
+  .spec-table { font-size: 0.86rem; }
+  .spec-table th, .spec-table td { padding: 12px 12px; }
+  .spec-table th { width: auto; }
+  /* タブレット幅（601〜768px）は表のまま読めるので、
+     収まらない場合だけラッパー内で横スクロールさせる */
+  .table-scroll .spec-table.is-wide { min-width: 560px; }
+  .table-scroll .spec-table.is-wide th { min-width: 110px; }
+
+  .check-list li { font-size: 0.92rem; padding: 12px 14px; }
+  .faq-item { padding: 16px; }
+
+  .affiliate-box { padding: 20px 16px; }
+  .affiliate-btns { flex-direction: column; }
+  .aff-btn {
+    width: 100%; text-align: center;
+    min-height: 48px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .product-img-wrap img,
+  .article-hero-img img,
+  .hero-img { padding: 16px; }
+}
+
+/* ===== 3列以上の表: 横スクロールさせず「1行＝1カード」に組み替える =====
+   列が多い表（最大7列）は画面幅に押し込むと1列数十pxまで潰れ、
+   横スクロールにすると全体を見渡せない。そこで各行をカード化し、
+   1列目を見出し、2列目以降を「ラベル／値」の縦積みで表示する。
+   ラベルは data-label 属性（scripts/add-table-labels.mjs が
+   見出し行から機械転記）を ::before で表示している。 */
+@media (max-width: 600px) {
+  /* タブレット幅用の横スクロール指定（min-width）をここで解除する。
+     .table-scroll を含む同じ詳細度で上書きしないと効かない */
+  .table-scroll .spec-table.is-wide,
+  .table-scroll .spec-table.is-wide th { min-width: 0; }
+  .spec-table.is-wide {
+    display: block;
+    border: none; border-radius: 0;
+    background: none; font-size: 0.88rem;
+  }
+  .spec-table.is-wide tbody { display: block; }
+  /* 見出し行はラベルとして各セルへ移したので隠す（読み上げ用に残さない） */
+  .spec-table.is-wide tr:first-child { display: none; }
+  .spec-table.is-wide tr {
+    display: block;
+    border: 1px solid var(--sand);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: var(--cream);
+  }
+  .spec-table.is-wide tr:last-child { margin-bottom: 0; }
+  .spec-table.is-wide th,
+  .spec-table.is-wide td {
+    display: block; width: auto;
+    border-bottom: 1px solid var(--sand);
+    padding: 10px 14px;
+    line-height: 1.7;
+  }
+  .spec-table.is-wide tr > *:last-child { border-bottom: none; }
+  /* 1列目＝カードの見出し */
+  .spec-table.is-wide tr > *:first-child {
+    background: var(--paper);
+    font-weight: 700; color: var(--ink);
+    font-size: 0.92rem;
+  }
+  .spec-table.is-wide tr > *:first-child strong { font-weight: 700; }
+  /* 2列目以降＝列見出しをラベルとして値の上に置く */
+  .spec-table.is-wide td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--font-ui);
+    font-size: 0.7rem; font-weight: 700;
+    color: var(--bark);
+    letter-spacing: 0.04em;
+    margin-bottom: 3px;
+  }
+  /* ◎/〇 のような短い値はラベルと同じ行に並べて縦の間延びを防ぐ
+     （is-compact は add-table-labels.mjs が本文8文字以下のセルに付与） */
+  .spec-table.is-wide td.is-compact {
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .spec-table.is-wide td.is-compact::before {
+    flex: 0 0 auto; min-width: 7.5em;
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .article-layout { grid-template-columns: 1fr 220px; }
+}

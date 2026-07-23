@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillReach（スキルリーチ） — AIに負けない、資格探し。</title>
+  <meta name="description" content="スキルリーチ（SkillReach）は、社会保険労務士・宅地建物取引士・中小企業診断士・応用情報技術者・公認会計士など、難関国家資格の学習ロードマップと教材レビューを届けるサイトです。">
+  <meta name="google-site-verification" content="" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- GSAP + ScrollTrigger + Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.9/dist/lenis.min.js" defer></script>
+  <!-- seo:auto:begin -->
+  <link rel="canonical" href="https://techsnap-blog.github.io/skill-reach/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SkillReach">
+  <meta property="og:title" content="SkillReach（スキルリーチ） — AIに負けない、資格探し。">
+  <meta property="og:description" content="スキルリーチ（SkillReach）は、社会保険労務士・宅地建物取引士・中小企業診断士・応用情報技術者・公認会計士など、難関国家資格の学習ロードマップと教材レビューを届けるサイトです。">
+  <meta property="og:url" content="https://techsnap-blog.github.io/skill-reach/">
+  <meta property="og:image" content="https://techsnap-blog.github.io/skill-reach/images/hero-main.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SkillReach（スキルリーチ） — AIに負けない、資格探し。">
+  <meta name="twitter:description" content="スキルリーチ（SkillReach）は、社会保険労務士・宅地建物取引士・中小企業診断士・応用情報技術者・公認会計士など、難関国家資格の学習ロードマップと教材レビューを届けるサイトです。">
+  <meta name="twitter:image" content="https://techsnap-blog.github.io/skill-reach/images/hero-main.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://techsnap-blog.github.io/skill-reach/#organization",
+        "name": "SkillReach",
+        "url": "https://techsnap-blog.github.io/skill-reach/",
+        "description": "AIに負けない、資格探し。難関国家資格を目指す人に向けた学習ロードマップと教材レビューのサイトです。"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://techsnap-blog.github.io/skill-reach/#website",
+        "url": "https://techsnap-blog.github.io/skill-reach/",
+        "name": "SkillReach",
+        "alternateName": "スキルリーチ",
+        "description": "スキルリーチ（SkillReach）は、社会保険労務士・宅地建物取引士・中小企業診断士・応用情報技術者・公認会計士など、難関国家資格の学習ロードマップと教材レビューを届けるサイトです。",
+        "publisher": {
+          "@id": "https://techsnap-blog.github.io/skill-reach/#organization"
+        },
+        "inLanguage": "ja-JP"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://techsnap-blog.github.io/skill-reach/#webpage",
+        "url": "https://techsnap-blog.github.io/skill-reach/",
+        "name": "SkillReach（スキルリーチ） — AIに負けない、資格探し。",
+        "description": "スキルリーチ（SkillReach）は、社会保険労務士・宅地建物取引士・中小企業診断士・応用情報技術者・公認会計士など、難関国家資格の学習ロードマップと教材レビューを届けるサイトです。",
+        "isPartOf": {
+          "@id": "https://techsnap-blog.github.io/skill-reach/#website"
+        },
+        "about": {
+          "@id": "https://techsnap-blog.github.io/skill-reach/#organization"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://techsnap-blog.github.io/skill-reach/#primaryimage"
+        },
+        "inLanguage": "ja-JP"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://techsnap-blog.github.io/skill-reach/#primaryimage",
+        "url": "https://techsnap-blog.github.io/skill-reach/images/hero-main.png",
+        "contentUrl": "https://techsnap-blog.github.io/skill-reach/images/hero-main.png"
+      }
+    ]
+  }
+  </script>
+  <!-- seo:auto:end -->
+  <noscript><style id="noscript-mobile-nav">@media (max-width: 768px){.mobile-nav{display:flex}.menu-toggle{display:none}}</style></noscript>
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER
+  ====================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./" class="logo">Skill<span>Reach</span></a>
+      <nav class="nav">
+        <a href="#reviews">記事一覧</a>
+        <a href="#categories">資格カテゴリ</a>
+        <a href="#ranking">資格ランキング</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#reviews">記事一覧</a>
+      <a href="#categories">資格カテゴリ</a>
+      <a href="#ranking">資格ランキング</a>
+    </nav>
+  </header>
+
+  <!-- ======================================================
+       HERO PIN WRAP — 200vh = pin duration
+  ====================================================== -->
+  <section class="hero">
+
+    <!-- Background layer -->
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <!-- Poster layout container
+         grid: [text-col] [image-col]
+         テキストと人物を一つのレイアウトシステムで管理 -->
+    <div class="hero-poster">
+
+      <!-- Left: Text column -->
+      <div class="hero-text-overlay">
+        <p class="hero-eyebrow">AIに負けない資格探し</p>
+        <h1><span>今日の10分が、</span><br><span>未来の働き方を変える。</span></h1>
+        <p class="hero-sub">参考書には書いていない学習の組み立て方、<br>合格率には表れない積み重ねの過程。</p>
+        <!-- Site search -->
+        <div class="hero-search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input type="text" id="site-search" placeholder="記事を検索" autocomplete="off" aria-label="記事を検索">
+        </div>
+      </div>
+
+      <!-- Right: Image column
+           .hero-image-wrap クラスはGSAP参照のため維持 -->
+      <div class="hero-image-wrap">
+        <img
+          src="images/hero-main.png"
+          alt="SkillReach — AIに負けない、資格探し。"
+          width="560"
+          height="700"
+          fetchpriority="high"
+        >
+      </div>
+
+    </div><!-- /hero-poster -->
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+        <rect x="6.5" y="2" width="3" height="6" rx="1.5" fill="currentColor"/>
+        <rect x="0.5" y="0.5" width="15" height="23" rx="7.5" stroke="currentColor" stroke-opacity="0.3"/>
+      </svg>
+      <span>scroll</span>
+    </div>
+
+  </section>
+  <!-- ======================================================
+       CONTENT SECTION — Heroの上にposition:fixedで重なる
+  ====================================================== -->
+  <div class="content-section">
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+      <div class="container">
+        <div class="cat-list">
+          <button class="cat-btn active" data-cat="all">すべて</button>
+          <button class="cat-btn" data-cat="国家資格">国家資格</button>
+          <button class="cat-btn" data-cat="公的資格">公的資格</button>
+          <button class="cat-btn" data-cat="民間資格">民間資格</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles -->
+    <section class="articles" id="reviews">
+      <div class="container">
+        <div class="article-grid">
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月23日</span>
+              </div>
+              <h3><a href="articles/seiri-shuno-advisor.html">整理収納アドバイザーとは？資格の取り方・難易度・独学・仕事を初心者向けに解説</a></h3>
+              <p class="card-excerpt">整理収納アドバイザーとはどんな民間資格か、2級・準1級・1級の違いと取得の流れ・難易度・勉強時間の目安・独学の可否・通信講座の比較・仕事内容・転職や副業での活かし方・年収の考え方・AI時代の将来性まで、これから学びたい初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月22日</span>
+              </div>
+              <h3><a href="articles/cpa-introduction.html">公認会計士とは？難易度・勉強時間・独学・将来性を初心者向けに解説</a></h3>
+              <p class="card-excerpt">公認会計士とはどんな国家資格か、独占業務である監査の役割・仕事内容・受験資格・試験制度（短答式/論文式）・難易度・勉強時間の目安・税理士との違い・年収の傾向・将来性・AI時代の役割まで、これから学びたい初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月22日</span>
+              </div>
+              <h3><a href="articles/shakai-fukushishi-introduction.html">社会福祉士とは？受験資格・難易度・仕事内容を初心者向けに解説</a></h3>
+              <p class="card-excerpt">社会福祉士とはどんな国家資格か、仕事内容・受験資格の複数ルート・試験内容・合格率の推移・難易度・勉強時間の目安・年収の傾向・将来性・AI時代の役割まで、これから福祉を学びたい初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="公的資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">公的資格</span>
+                <span class="date">2026年7月21日</span>
+              </div>
+              <h3><a href="articles/care-manager.html">ケアマネジャーとは？受験資格・難易度・仕事内容を初心者向けにやさしく解説</a></h3>
+              <p class="card-excerpt">ケアマネジャー（介護支援専門員）とはどんな資格か、受験資格・試験内容・合格率の推移・難易度・勉強時間の目安・仕事内容・年収の傾向・将来性・AI時代の役割まで、これから目指す初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月21日</span>
+              </div>
+              <h3><a href="articles/kaigo-fukushishi-introduction.html">介護福祉士とは？取得方法・仕事内容・将来性を初心者向けに解説</a></h3>
+              <p class="card-excerpt">介護福祉士とはどんな国家資格か、仕事内容・受験資格と取得ルート・試験内容・合格率の傾向・勉強時間の目安・年収・転職や就職での活かし方・AI時代の役割まで、これから介護を学びたい初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月21日</span>
+              </div>
+              <h3><a href="articles/fukushi-jukankyo-coordinator-introduction.html">福祉住環境コーディネーター検定試験®とは？難易度・勉強時間・独学での合格を初心者向けに解説</a></h3>
+              <p class="card-excerpt">福祉住環境コーディネーター検定試験®とはどんな資格か、2級・3級の難易度・合格率の傾向・勉強時間の目安・独学の可否・就職や転職での活かし方・AI時代の将来性まで、これから福祉と住環境を学びたい初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月17日</span>
+              </div>
+              <h3><a href="articles/cad-riyou-gijutsusha-introduction.html">CAD利用技術者試験とは？難易度・勉強時間・独学・将来性を初心者向けに解説</a></h3>
+              <p class="card-excerpt">CAD利用技術者試験とはどんな資格か、基礎・2級・1級の違い・難易度・合格率の傾向・勉強時間の目安・独学の可否・就職や転職での活かし方・AI時代の将来性まで、CADに興味がある初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月16日</span>
+              </div>
+              <h3><a href="articles/bijihou-introduction.html">ビジネス実務法務検定試験®とは？難易度・勉強時間・独学での合格を初心者向けに解説</a></h3>
+              <p class="card-excerpt">ビジネス実務法務検定試験®とはどんな資格か、3級・2級の難易度・合格率・勉強時間・独学の可否・就職や転職での活かし方・AI時代の将来性まで、これから法務知識を学びたい初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月16日</span>
+              </div>
+              <h3><a href="articles/chizai-3-introduction.html">知的財産管理技能士3級とは？難易度・独学・将来性を初心者向けに解説</a></h3>
+              <p class="card-excerpt">知的財産管理技能士3級とはどんな国家資格か、試験内容・難易度・合格率・独学の可否・勉強時間・就職や転職での活かし方・AI時代の将来性まで、これから挑戦を考えている初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月16日</span>
+              </div>
+              <h3><a href="articles/benrishi-introduction.html">弁理士とは？難易度・仕事内容・AI時代の将来性を初心者向けに解説</a></h3>
+              <p class="card-excerpt">弁理士とはどんな資格か、仕事内容・受験資格・試験制度・難易度・勉強時間・独学の可否・年収の考え方・AI時代の将来性まで、これから挑戦を考えている初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月15日</span>
+              </div>
+              <h3><a href="articles/photoshop-creator-certification.html">Photoshopクリエイター能力認定試験とは？難易度・勉強時間・独学法を初心者向けに解説</a></h3>
+              <p class="card-excerpt">スタンダードとエキスパートの違い・難易度・合格率・勉強時間・独学と通信講座の選び方・就職や副業への活かし方まで、画像編集やデザインに興味がある方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月15日</span>
+              </div>
+              <h3><a href="articles/illustrator-creator-certification.html">Illustratorクリエイター能力認定試験とは？難易度・勉強時間・独学法を解説</a></h3>
+              <p class="card-excerpt">スタンダードとエキスパートの違い・難易度・合格率・勉強時間・独学と通信講座の選び方・就職や副業への活かし方まで、デザインに興味がある初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月14日</span>
+              </div>
+              <h3><a href="articles/real-estate-appraiser-introduction.html">不動産鑑定士とは？仕事内容・難易度・AI時代の将来性を解説</a></h3>
+              <p class="card-excerpt">仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・年収・AI時代の将来性・おすすめ通信講座まで、これから挑戦を考えている初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月14日</span>
+              </div>
+              <h3><a href="articles/shindanshi-introduction.html">中小企業診断士とは？難易度・勉強時間・独学・将来性を初心者向けに解説</a></h3>
+              <p class="card-excerpt">仕事内容・試験制度・難易度・合格率・勉強時間・独学の可否・年収・転職・将来性まで、これから学ぼうと考えている初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月13日</span>
+              </div>
+              <h3><a href="articles/land-house-investigator-introduction.html">土地家屋調査士とは？仕事内容・難易度・AI時代の将来性を解説</a></h3>
+              <p class="card-excerpt">仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・年収・AI時代の将来性・おすすめ通信講座まで、これから挑戦を考えている初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月13日</span>
+              </div>
+              <h3><a href="articles/kaijidairishi.html">海事代理士とは？仕事内容・難易度・AI時代の将来性を解説</a></h3>
+              <p class="card-excerpt">仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・年収・AI時代の価値まで、これから挑戦を考えている初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月13日</span>
+              </div>
+              <h3><a href="articles/shoubou-setsubishi-introduction.html">消防設備士とは？難易度・合格率・仕事内容・将来性を初心者向けに解説</a></h3>
+              <p class="card-excerpt">仕事内容・甲種と乙種の違い・難易度・合格率・勉強時間・独学の可否・年収・将来性・AI時代との関係まで、資格取得を検討する初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月12日</span>
+              </div>
+              <h3><a href="articles/shihoshoshi-introduction.html">司法書士とは？仕事内容・難易度・AI時代の将来性を解説</a></h3>
+              <p class="card-excerpt">仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・AI時代の将来性・おすすめ通信講座まで、これから挑戦を考えている初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月12日</span>
+              </div>
+              <h3><a href="articles/zeirishi-introduction.html">税理士とは？難易度・勉強時間・独学・将来性を初心者向けに解説</a></h3>
+              <p class="card-excerpt">仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・公認会計士や簿記との違い・年収・将来性まで、これから学ぼうと考えている初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月12日</span>
+              </div>
+              <h3><a href="articles/mansion-kanrishi-introduction.html">マンション管理士とは？難易度・仕事内容・将来性を初心者向けに解説</a></h3>
+              <p class="card-excerpt">仕事内容・難易度・合格率・勉強時間・独学の可否・管理業務主任者との違い・将来性まで、これから学ぼうと考えている初心者に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月12日</span>
+              </div>
+              <h3><a href="articles/webdesign-ginou-kentei.html">ウェブデザイン技能検定とは？国家資格の難易度・合格率・勉強方法を初心者向けに解説</a></h3>
+              <p class="card-excerpt">ウェブデザイン技能検定とは何か、Webデザイン唯一の国家検定の3級・2級・1級の違い・難易度・合格率・受検資格・勉強方法・独学と通信講座の選び方・転職や将来性まで、初心者向けにやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月11日</span>
+              </div>
+              <h3><a href="articles/pharmacy-clerk.html">調剤薬局事務とは？資格の種類と医療事務との違いを解説</a></h3>
+              <p class="card-excerpt">調剤薬局事務の仕事内容・医療事務との違い・資格の種類（調剤事務管理士等）・難易度や勉強時間の目安・独学と通信講座の選び方・就職や転職への活かし方まで、未経験から医療業界を目指す方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月11日</span>
+              </div>
+              <h3><a href="articles/iryoujimu-introduction.html">医療事務とは？資格の種類とAI時代の将来性を解説</a></h3>
+              <p class="card-excerpt">医療事務の仕事内容・資格の種類（メディカルクラーク等）・難易度や勉強時間の目安・AI時代でも需要が続くと考えられる理由・就職や転職への活かし方まで、未経験から医療業界を目指す方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月11日</span>
+              </div>
+              <h3><a href="articles/hisho-kentei.html">秘書検定とは？AI時代でも価値がある理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">秘書検定で身につく敬語・電話応対・来客対応などのビジネスマナー・AI時代でも役立つ理由・難易度や勉強時間の目安・就職や転職への活かし方まで、社会人マナーに自信をつけたい方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月10日</span>
+              </div>
+              <h3><a href="articles/mos.html">MOSとは？AI時代でも価値がある理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">MOSで証明できるOfficeスキル・AI時代の将来性・難易度・勉強時間・独学と通信講座の選び方・転職への活かし方まで、パソコンスキルに自信をつけたい方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月10日</span>
+              </div>
+              <h3><a href="articles/toeic.html">TOEICとは？AI時代でも価値がある理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">TOEICで測れる英語力・AI時代の将来性・目標スコア別の勉強時間・スコア別の評価・転職への活かし方・おすすめ通信講座まで、英語を学び直したい方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月8日</span>
+              </div>
+              <h3><a href="articles/denken3-introduction.html">電験三種とは？AI時代でも価値がある理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">電験三種（第三種電気主任技術者）の仕事内容・難易度・勉強時間・年収・AI時代との関係まで、手に職をつけたい方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月6日</span>
+              </div>
+              <h3><a href="articles/registered-information-security-specialist.html">情報処理安全確保支援士とは？AI時代でも価値がある理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">国家資格としての位置づけ・難易度・勉強時間・合格率・登録制度・年収やキャリア・AI時代の将来性まで、セキュリティの専門性を高めたい方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月4日</span>
+              </div>
+              <h3><a href="articles/information-security-management.html">情報セキュリティマネジメント試験とは？AI時代でも価値がある理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">国家資格としての位置づけ・難易度・勉強時間・独学と通信講座の選び方・転職への活かし方まで、IT初心者や社会人に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月4日</span>
+              </div>
+              <h3><a href="articles/shikisai-kentei.html">色彩検定とは？AI時代でも基礎として役立つ理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">3級・2級・1級・UC級の違い・難易度・勉強時間・独学と通信講座の選び方・仕事への活かし方まで、デザインや色に興味がある方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="民間資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">民間資格</span>
+                <span class="date">2026年7月4日</span>
+              </div>
+              <h3><a href="articles/webcreator-certification.html">Webクリエイター能力認定試験とは？AI時代でも基礎として役立つ理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">スタンダードとエキスパートの違い・難易度・勉強時間・独学と通信講座の選び方・転職や副業への活かし方まで、Web制作に興味がある方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="公的資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">公的資格</span>
+                <span class="date">2026年7月4日</span>
+              </div>
+              <h3><a href="articles/boki2.html">簿記2級とは？AI時代でも価値がある理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">仕事内容・難易度・勉強時間・独学と通信講座の選び方・AI時代との関係まで、経理職や学び直しを考える方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月2日</span>
+              </div>
+              <h3><a href="articles/denkikoji2-introduction.html">第二種電気工事士とは？未経験から手に職を目指せる国家資格を初心者向けに解説</a></h3>
+              <p class="card-excerpt">仕事内容・難易度・勉強時間・技能試験対策・AI時代との関係まで、未経験から手に職を目指したい方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月2日</span>
+              </div>
+              <h3><a href="articles/ouyoujouhou-introduction.html">応用情報技術者とは？AI時代にITスキルを広げたい国家資格を初心者向けに解説</a></h3>
+              <p class="card-excerpt">難易度・勉強時間・午後試験対策・AI時代との関係まで、基本情報技術者取得者やITエンジニアを目指す方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月2日</span>
+              </div>
+              <h3><a href="articles/itpassport-introduction.html">ITパスポートとは？AI時代の基礎固めにおすすめの国家資格を初心者向けに解説</a></h3>
+              <p class="card-excerpt">難易度・勉強時間・独学と通信講座の選び方・AI時代との関係まで、IT初心者や社会人・学生に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月1日</span>
+              </div>
+              <h3><a href="articles/fp3-introduction.html">FP3級とは？初心者でも挑戦しやすいお金の国家資格をわかりやすく解説</a></h3>
+              <p class="card-excerpt">家計・保険・NISA・年金まで、お金の基礎知識を体系的に学べるFP3級。合格率・勉強時間・通信講座の選び方をやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月1日</span>
+              </div>
+              <h3><a href="articles/fp2-introduction.html">FP2級とは？転職・キャリアアップにも役立つ人気の国家資格を初心者向けに解説</a></h3>
+              <p class="card-excerpt">難易度・勉強時間・転職への活かし方・AI時代の将来性・おすすめ通信講座まで、FP3級取得者や転職を考えている方に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月1日</span>
+              </div>
+              <h3><a href="articles/gyoseishoshi-introduction.html">行政書士とは？AI時代でも価値がある理由を初心者向けに解説</a></h3>
+              <p class="card-excerpt">仕事内容・勉強時間・AI時代の将来性・独立・副業への活かし方まで、これから挑戦しようと考えている人に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月1日</span>
+              </div>
+              <h3><a href="articles/takken-introduction.html">宅地建物取引士とは？AI時代でも価値が高い国家資格を初心者向けに解説</a></h3>
+              <p class="card-excerpt">仕事内容・勉強時間・転職への活かし方・おすすめ通信講座まで、宅建に挑戦しようと考えている人に向けてわかりやすくまとめました。</p>
+            </div>
+          </article>
+
+          <article class="article-card" data-cat="国家資格">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="tag">国家資格</span>
+                <span class="date">2026年7月1日</span>
+              </div>
+              <h3><a href="articles/sharoushi-introduction.html">社会保険労務士とは？AI時代でも求められる国家資格をわかりやすく解説</a></h3>
+              <p class="card-excerpt">仕事内容・勉強時間・育児・仕事と両立しながら目指せる理由まで、これから学ぼうと考えている人に向けてやさしくまとめました。</p>
+            </div>
+          </article>
+
+        </div>
+        <div class="show-more-wrap">
+          <button class="btn-show-more" id="show-more-btn" type="button">もっと見る</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ranking -->
+    <section class="ranking" id="ranking">
+      <div class="container">
+        <h2 class="section-title">AI時代おすすめランキング</h2>
+        <ol class="rank-list">
+          <li class="rank-item">
+            <span class="rank-num">1</span>
+            <div class="rank-body">
+              <span class="tag sm">国家資格</span>
+              <a href="articles/denkikoji2-introduction.html">第二種電気工事士とは？未経験から手に職を目指せる国家資格を初心者向けに解説</a>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-num">2</span>
+            <div class="rank-body">
+              <span class="tag sm">国家資格</span>
+              <a href="articles/shoubou-setsubishi-introduction.html">消防設備士とは？難易度・合格率・仕事内容・将来性を初心者向けに解説</a>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-num">3</span>
+            <div class="rank-body">
+              <span class="tag sm">国家資格</span>
+              <a href="articles/denken3-introduction.html">電験三種とは？AI時代でも価値がある理由を初心者向けに解説</a>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-num">4</span>
+            <div class="rank-body">
+              <span class="tag sm">国家資格</span>
+              <a href="articles/cpa-introduction.html">公認会計士とは？難易度・勉強時間・独学・将来性を初心者向けに解説</a>
+            </div>
+          </li>
+          <li class="rank-item">
+            <span class="rank-num">5</span>
+            <div class="rank-body">
+              <span class="tag sm">国家資格</span>
+              <a href="articles/shakai-fukushishi-introduction.html">社会福祉士とは？受験資格・難易度・仕事内容を初心者向けに解説</a>
+            </div>
+          </li>
+        </ol>
+        <p class="rank-disclaimer" style="font-size:0.72rem;color:var(--text-sub);margin-top:16px;text-align:center;">※本ランキングは、独占業務の有無や個別判断の必要性など「AIに代替されにくいか」という観点に基づくSkillReach編集部独自の見解です。公的な統計・調査データではありません。</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-logo">Skill<span>Reach</span></div>
+        <p class="footer-desc">スキルリーチ（SkillReach）は、AIに仕事を奪われないための資格をご紹介します</p>
+        <p class="footer-copy">© 2026 SkillReach</p>
+      </div>
+    </footer>
+
+  </div><!-- /content-section -->
+
+  <script src="js/main.js?v=5"></script>
+</body>
+</html>
