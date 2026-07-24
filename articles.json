@@ -1,5 +1,16 @@
 [
   {
+    "id": "forklift-ginou-koshu",
+    "title": "フォークリフト運転技能講習とは？取得方法・費用・難易度・仕事内容を初心者向けに解説",
+    "category": "公的資格",
+    "date": "2026年7月24日",
+    "image": "images/hero-main.png",
+    "url": "articles/forklift-ginou-koshu.html",
+    "excerpt": "フォークリフト運転技能講習とはどんな制度か、最大荷重1トン以上を運転するための位置づけ・特別教育との違い・受講資格と講習時間の区分・学科と実技の内容・修了試験・難易度・日数や費用の考え方・仕事内容・転職での活かし方・AI時代の将来性まで、これから学びたい初心者に向けてやさしくまとめました。",
+    "ai_resilience_rank": 8,
+    "ai_resilience_note": "労働安全衛生法に基づく技能講習で、最大荷重1トン以上の運転業務は修了者でなければ従事できないとされている。自動搬送設備の導入が進む領域である一方、周囲の安全確認・荷崩れの防止・狭い現場での操作・イレギュラー対応など人による判断が重要な部分が現場に残りやすいため、中位に置いた（編集部見解）。"
+  },
+  {
     "id": "seiri-shuno-advisor",
     "title": "整理収納アドバイザーとは？資格の取り方・難易度・独学・仕事を初心者向けに解説",
     "category": "民間資格",
@@ -7,7 +18,7 @@
     "image": "images/hero-main.png",
     "url": "articles/seiri-shuno-advisor.html",
     "excerpt": "整理収納アドバイザーとはどんな民間資格か、2級・準1級・1級の違いと取得の流れ・難易度・勉強時間の目安・独学の可否・通信講座の比較・仕事内容・転職や副業での活かし方・年収の考え方・AI時代の将来性まで、これから学びたい初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 40,
+    "ai_resilience_rank": 41,
     "ai_resilience_note": "ハウスキーピング協会が認定する民間資格で、法令に基づく独占業務はない。現場の状況確認・依頼者との対話・家族構成や生活習慣に合わせた調整など人による判断が重要な部分は残る一方、整理手順や収納アイデアの提示はAIで代替しやすいため、順位は下位に置いた（編集部見解）。"
   },
   {
@@ -62,7 +73,7 @@
     "image": "images/hero-main.png",
     "url": "articles/fukushi-jukankyo-coordinator-introduction.html",
     "excerpt": "福祉住環境コーディネーター検定試験®とはどんな資格か、2級・3級の難易度・合格率の傾向・勉強時間の目安・独学の可否・就職や転職での活かし方・AI時代の将来性まで、これから福祉と住環境を学びたい初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 39,
+    "ai_resilience_rank": 40,
     "ai_resilience_note": "独占業務のない民間検定で、医療・福祉・建築を横断する基礎知識の習得が中心となる。バリアフリー基準の整理などでAI活用が進むなか、利用者への現地確認・提案・多職種連携を担う人の役割を支える土台として位置づけられる（編集部見解）。"
   },
   {
@@ -73,7 +84,7 @@
     "image": "images/hero-main.png",
     "url": "articles/cad-riyou-gijutsusha-introduction.html",
     "excerpt": "CAD利用技術者試験とはどんな資格か、基礎・2級・1級の違い・難易度・合格率の傾向・勉強時間の目安・独学の可否・就職や転職での活かし方・AI時代の将来性まで、CADに興味がある初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 38,
+    "ai_resilience_rank": 39,
     "ai_resilience_note": "独占業務のない民間資格で、CADと製図の基礎知識・作図技能の習得が中心となる。作図補助やモデル生成でAI活用が進むなか、その出力を評価・修正する側の基礎力として位置づけられる（編集部見解）。"
   },
   {
@@ -84,7 +95,7 @@
     "image": "images/hero-main.png",
     "url": "articles/bijihou-introduction.html",
     "excerpt": "ビジネス実務法務検定試験®とはどんな資格か、3級・2級の難易度・合格率・勉強時間・独学の可否・就職や転職での活かし方・AI時代の将来性まで、これから法務知識を学びたい初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 37,
+    "ai_resilience_rank": 38,
     "ai_resilience_note": "独占業務のない民間検定で、法務知識の習得が中心となる。AIによる契約書チェックが広がるなかで、その出力を評価する側の基礎リテラシーとして位置づけられる（編集部見解）。"
   },
   {
@@ -95,7 +106,7 @@
     "image": "images/hero-main.png",
     "url": "articles/chizai-3-introduction.html",
     "excerpt": "知的財産管理技能士3級とはどんな国家資格か、試験内容・難易度・合格率・独学の可否・勉強時間・就職や転職での活かし方・AI時代の将来性まで、これから挑戦を考えている初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 36,
+    "ai_resilience_rank": 37,
     "ai_resilience_note": "特許庁への手続き代理などの独占業務は持たない知財の入門資格で、基礎知識の習得が中心となる。AIを活用しながら知財の考え方を学ぶ土台として位置づけられる（編集部見解）。"
   },
   {
@@ -106,7 +117,7 @@
     "image": "images/hero-main.png",
     "url": "articles/benrishi-introduction.html",
     "excerpt": "弁理士とはどんな資格か、仕事内容・受験資格・試験制度・難易度・勉強時間・独学の可否・年収の考え方・AI時代の将来性まで、これから挑戦を考えている初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 11,
+    "ai_resilience_rank": 12,
     "ai_resilience_note": "特許出願など特許庁への手続きを行える独占業務があり、発明の本質理解や権利範囲の設計には高度な専門判断が必要とされる（編集部見解）。"
   },
   {
@@ -117,7 +128,7 @@
     "image": "images/hero-main.png",
     "url": "articles/illustrator-creator-certification.html",
     "excerpt": "スタンダードとエキスパートの違い・難易度・合格率・勉強時間・独学と通信講座の選び方・就職や副業への活かし方まで、デザインに興味がある初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 35,
+    "ai_resilience_rank": 36,
     "ai_resilience_note": "独占業務のない民間資格で、AIによるデザイン案生成が進む領域。ただしコンセプト立案・ブランド判断・修正対応は人が関わりやすいとされる（編集部見解）。"
   },
   {
@@ -161,7 +172,7 @@
     "image": "images/hero-main.png",
     "url": "articles/land-house-investigator-introduction.html",
     "excerpt": "仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・年収・AI時代の将来性・おすすめ通信講座まで、これから挑戦を考えている初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 8,
+    "ai_resilience_rank": 9,
     "ai_resilience_note": "表示に関する登記の調査・測量・申請代理は独占業務。現地での境界確認や隣地所有者との立会い・調整は物理的・対人的な人の判断が中心とされる（編集部見解）。"
   },
   {
@@ -172,7 +183,7 @@
     "image": "images/hero-main.png",
     "url": "articles/real-estate-appraiser-introduction.html",
     "excerpt": "仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・年収・AI時代の将来性・おすすめ通信講座まで、これから挑戦を考えている初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 9,
+    "ai_resilience_rank": 10,
     "ai_resilience_note": "不動産の鑑定評価は不動産鑑定士でなければ行えない独占業務。現地調査による物件・地域特性の見極めや、評価根拠の説明責任は人による判断が中心とされる（編集部見解）。"
   },
   {
@@ -183,7 +194,7 @@
     "image": "images/hero-main.png",
     "url": "articles/shihoshoshi-introduction.html",
     "excerpt": "仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・AI時代の将来性・おすすめ通信講座まで、これから挑戦を考えている初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 10,
+    "ai_resilience_rank": 11,
     "ai_resilience_note": "不動産・商業登記の代理や簡裁訴訟代理（認定司法書士）は独占業務。登記における本人確認・意思確認は法的責任を伴う人による判断が中心とされる（編集部見解）。"
   },
   {
@@ -194,7 +205,7 @@
     "image": "images/hero-main.png",
     "url": "articles/takken-introduction.html",
     "excerpt": "仕事内容・勉強時間・転職への活かし方・おすすめ通信講座まで、宅建に挑戦しようと考えている人に向けてわかりやすくまとめました。",
-    "ai_resilience_rank": 12,
+    "ai_resilience_rank": 13,
     "ai_resilience_note": "重要事項説明・記名押印は有資格者本人が行う独占業務。法律上、人の関与が必須なためAIに代替されにくい（編集部見解）。"
   },
   {
@@ -205,7 +216,7 @@
     "image": "images/hero-main.png",
     "url": "articles/sharoushi-introduction.html",
     "excerpt": "仕事内容・勉強時間・主婦や転職組でも目指せる理由まで、これから学ぼうと考えている人に向けてやさしくまとめました。",
-    "ai_resilience_rank": 13,
+    "ai_resilience_rank": 14,
     "ai_resilience_note": "労働社会保険諸法令に基づく書類の提出代行等は独占業務。個別の労務相談も人の判断が関わりやすい領域（編集部見解）。"
   },
   {
@@ -216,7 +227,7 @@
     "image": "images/hero-main.png",
     "url": "articles/zeirishi-introduction.html",
     "excerpt": "仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・公認会計士や簿記との違い・年収・将来性まで、これから学ぼうと考えている初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 14,
+    "ai_resilience_rank": 15,
     "ai_resilience_note": "税務代理・税務書類の作成・税務相談は独占業務。相続・事業承継など個別の状況に応じた税務判断や説明責任は人による判断が重要な部分とされる（編集部見解）。"
   },
   {
@@ -227,7 +238,7 @@
     "image": "images/hero-main.png",
     "url": "articles/gyoseishoshi-introduction.html",
     "excerpt": "仕事内容・勉強時間・AI時代の将来性・独立・副業への活かし方まで、これから挑戦しようと考えている人に向けてやさしくまとめました。",
-    "ai_resilience_rank": 16,
+    "ai_resilience_rank": 17,
     "ai_resilience_note": "書類作成業務の一部に独占業務あり。書類作成自体はAI代替が進みやすいが、相談・申請代行は人の関与が必要な場面が多い（編集部見解）。"
   },
   {
@@ -238,7 +249,7 @@
     "image": "images/hero-main.png",
     "url": "articles/shindanshi-introduction.html",
     "excerpt": "仕事内容・試験制度・難易度・合格率・勉強時間・独学の可否・年収・転職・将来性まで、これから学ぼうと考えている初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 15,
+    "ai_resilience_rank": 16,
     "ai_resilience_note": "独占業務のない名称独占資格。経営者との対話・現場ヒアリング・関係者間の合意形成など人による判断が重要な場面が多い一方、独占業務がないぶん営業力・実績が価値を左右する（編集部見解）。"
   },
   {
@@ -249,7 +260,7 @@
     "image": "images/hero-main.png",
     "url": "articles/kaijidairishi.html",
     "excerpt": "仕事内容・受験資格・難易度・合格率・勉強時間・独学の可否・年収・AI時代の価値まで、これから挑戦を考えている初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 17,
+    "ai_resilience_rank": 18,
     "ai_resilience_note": "船舶・船員に関する海事関係法令に基づく申請・届出等の代理は法令上の専門業務。行政とのやりとりや手続きの判断は人による対応が中心とされる（編集部見解）。"
   },
   {
@@ -260,7 +271,7 @@
     "image": "images/hero-main.png",
     "url": "articles/mansion-kanrishi-introduction.html",
     "excerpt": "仕事内容・難易度・合格率・勉強時間・独学の可否・管理業務主任者との違い・将来性まで、これから学ぼうと考えている初心者に向けてやさしくまとめました。",
-    "ai_resilience_rank": 18,
+    "ai_resilience_rank": 19,
     "ai_resilience_note": "独占業務はないが、利害調整・合意形成・管理組合との信頼関係づくりなど人の判断が中心となる相談業務が多い（編集部見解）。"
   },
   {
@@ -271,7 +282,7 @@
     "image": "images/hero-main.png",
     "url": "articles/registered-information-security-specialist.html",
     "excerpt": "国家資格としての位置づけ・難易度・勉強時間・合格率・登録制度・年収やキャリア・AI時代の将来性まで、セキュリティの専門性を高めたい方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 19,
+    "ai_resilience_rank": 20,
     "ai_resilience_note": "独占業務はないが、セキュリティ設計・リスク評価・インシデント対応・経営への提案など人の判断が中心となる領域が多く、AIの検知・分析結果を評価し対応に落とし込む専門力として位置づく（編集部見解）。"
   },
   {
@@ -282,7 +293,7 @@
     "image": "images/hero-main.png",
     "url": "articles/ouyoujouhou-introduction.html",
     "excerpt": "難易度・勉強時間・午後試験対策・AI時代との関係まで、基本情報技術者取得者やITエンジニアを目指す方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 20,
+    "ai_resilience_rank": 21,
     "ai_resilience_note": "独占業務なし。ただしシステム設計・要件判断はAIと共に人が関わりやすい領域とされ、AIを使いこなす側の基礎力として位置づく（編集部見解）。"
   },
   {
@@ -293,7 +304,7 @@
     "image": "images/hero-main.png",
     "url": "articles/information-security-management.html",
     "excerpt": "国家資格としての位置づけ・難易度・勉強時間・独学と通信講座の選び方・転職への活かし方まで、IT初心者や社会人に向けてやさしくまとめました。",
-    "ai_resilience_rank": 21,
+    "ai_resilience_rank": 22,
     "ai_resilience_note": "独占業務なし。ただしリスク判断・セキュリティポリシー策定・インシデント対応など人の判断が関わる領域を含み、AIの検知結果を評価・対応する基礎力として位置づく（編集部見解）。"
   },
   {
@@ -304,7 +315,7 @@
     "image": "images/hero-main.png",
     "url": "articles/fp2-introduction.html",
     "excerpt": "難易度・勉強時間・転職への活かし方・AI時代の将来性・おすすめ通信講座まで、FP3級取得者や転職を考えている方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 22,
+    "ai_resilience_rank": 23,
     "ai_resilience_note": "独占業務なし。ただし個別家庭事情への提案は人による判断が関わりやすい領域（編集部見解）。"
   },
   {
@@ -315,7 +326,7 @@
     "image": "images/hero-main.png",
     "url": "articles/boki2.html",
     "excerpt": "仕事内容・難易度・勉強時間・独学と通信講座の選び方・AI時代との関係まで、経理職や学び直しを考える方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 23,
+    "ai_resilience_rank": 24,
     "ai_resilience_note": "独占業務なし。ただし数字の読み解き・異常値の発見・経営への説明は人が関わりやすい領域とされ、AIを使いこなす側の基礎力として位置づく（編集部見解）。"
   },
   {
@@ -326,7 +337,7 @@
     "image": "images/hero-main.png",
     "url": "articles/iryoujimu-introduction.html",
     "excerpt": "医療事務の仕事内容・資格の種類（メディカルクラーク等）・難易度や勉強時間の目安・AI時代でも需要が続くと考えられる理由・就職や転職への活かし方まで、未経験から医療業界を目指す方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 24,
+    "ai_resilience_rank": 25,
     "ai_resilience_note": "独占業務なし。複数団体が実施する民間資格。レセプトチェックやデータ入力はAIによる支援が進む領域だが、患者への配慮ある対応や医療スタッフとの連携は人による判断が関わりやすい領域とされる（編集部見解）。"
   },
   {
@@ -337,7 +348,7 @@
     "image": "images/hero-main.png",
     "url": "articles/pharmacy-clerk.html",
     "excerpt": "調剤薬局事務の仕事内容・医療事務との違い・資格の種類（調剤事務管理士等）・難易度や勉強時間の目安・独学と通信講座の選び方・就職や転職への活かし方まで、未経験から医療業界を目指す方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 25,
+    "ai_resilience_rank": 26,
     "ai_resilience_note": "独占業務なし。複数団体が実施する民間資格。レセコン入力やレセプトチェックはAIによる支援が進む領域だが、患者への配慮ある対応や薬剤師との連携は人による判断が関わりやすい領域とされる（編集部見解）。"
   },
   {
@@ -348,7 +359,7 @@
     "image": "images/hero-main.png",
     "url": "articles/hisho-kentei.html",
     "excerpt": "秘書検定で身につく敬語・電話応対・来客対応などのビジネスマナー・AI時代でも役立つ理由・難易度や勉強時間の目安・就職や転職への活かし方まで、社会人マナーに自信をつけたい方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 26,
+    "ai_resilience_rank": 27,
     "ai_resilience_note": "独占業務なし。文部科学省後援の民間検定。定型文の作成などはAIによる効率化が進む領域だが、相手の状況に応じた気配りや対面での対応は人による判断が関わりやすい領域とされる（編集部見解）。"
   },
   {
@@ -359,7 +370,7 @@
     "image": "images/hero-main.png",
     "url": "articles/toeic.html",
     "excerpt": "TOEICで測れる英語力・AI時代の将来性・目標スコア別の勉強時間・スコア別の評価・転職への活かし方・おすすめ通信講座まで、英語を学び直したい方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 27,
+    "ai_resilience_rank": 28,
     "ai_resilience_note": "独占業務はなく英語力を測る試験だが、交渉・信頼関係づくりなど人が関わりやすい英語コミュニケーションの土台であり、AI翻訳を使いこなす基礎力としても位置づく（編集部見解）。"
   },
   {
@@ -370,7 +381,7 @@
     "image": "images/hero-main.png",
     "url": "articles/itpassport-introduction.html",
     "excerpt": "難易度・勉強時間・独学と通信講座の選び方・AI時代との関係まで、IT初心者や社会人・学生に向けてやさしくまとめました。",
-    "ai_resilience_rank": 28,
+    "ai_resilience_rank": 29,
     "ai_resilience_note": "独占業務なし。AI活用の土台となる基礎知識だが、内容自体はAIに代替されやすい一般知識を多く含む（編集部見解）。"
   },
   {
@@ -381,7 +392,7 @@
     "image": "images/hero-main.png",
     "url": "articles/fp3-introduction.html",
     "excerpt": "家計・保険・NISA・年金まで、お金の基礎知識を体系的に学べるFP3級。合格率・勉強時間・通信講座の選び方をやさしくまとめました。",
-    "ai_resilience_rank": 29,
+    "ai_resilience_rank": 30,
     "ai_resilience_note": "独占業務なし。入門レベルの一般知識が中心で、AIに代替されやすい領域を多く含む（編集部見解）。"
   },
   {
@@ -392,7 +403,7 @@
     "image": "images/hero-main.png",
     "url": "articles/webcreator-certification.html",
     "excerpt": "スタンダードとエキスパートの違い・難易度・勉強時間・独学と通信講座の選び方・転職や副業への活かし方まで、Web制作に興味がある方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 30,
+    "ai_resilience_rank": 31,
     "ai_resilience_note": "独占業務なし。HTML・CSSの基礎スキルはAIによるコード生成の効率化が進む領域だが、AIの出力を評価・修正する土台となり、AIを使いこなす側の基礎力として位置づく（編集部見解）。"
   },
   {
@@ -403,7 +414,7 @@
     "image": "images/hero-main.png",
     "url": "articles/photoshop-creator-certification.html",
     "excerpt": "スタンダードとエキスパートの違い・難易度・合格率・勉強時間・独学と通信講座の選び方・就職や副業への活かし方まで、画像編集やデザインに興味がある方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 34,
+    "ai_resilience_rank": 35,
     "ai_resilience_note": "独占業務なし。画像生成・自動補正などAIによる効率化が進む領域だが、AIの出力を判断・修正する土台となり、AIを使いこなす側の基礎力として位置づく（編集部見解）。"
   },
   {
@@ -414,7 +425,7 @@
     "image": "images/hero-main.png",
     "url": "articles/webdesign-ginou-kentei.html",
     "excerpt": "ウェブデザイン技能検定とは何か、Webデザイン唯一の国家検定の3級・2級・1級の違い・難易度・合格率・受検資格・勉強方法・独学と通信講座の選び方・転職や将来性まで、初心者向けにやさしくまとめました。",
-    "ai_resilience_rank": 31,
+    "ai_resilience_rank": 32,
     "ai_resilience_note": "独占業務なし。Webデザイン分野唯一の国家検定だが、資格自体が特定業務を独占させるものではない。コーディングやデザイン案作成はAIによる効率化が進む領域だが、AIの出力を評価・修正する基礎力として位置づく（編集部見解）。"
   },
   {
@@ -425,7 +436,7 @@
     "image": "images/hero-main.png",
     "url": "articles/shikisai-kentei.html",
     "excerpt": "3級・2級・1級・UC級の違い・難易度・勉強時間・独学と通信講座の選び方・仕事への活かし方まで、デザインや色に興味がある方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 32,
+    "ai_resilience_rank": 33,
     "ai_resilience_note": "独占業務なし。文部科学省後援の民間検定。色彩理論はAIの配色提案を評価・調整する土台になるが、内容自体はAIによる効率化が進む領域も多い（編集部見解）。"
   },
   {
@@ -436,7 +447,7 @@
     "image": "images/hero-main.png",
     "url": "articles/mos.html",
     "excerpt": "MOSで証明できるOfficeスキル・AI時代の将来性・難易度・勉強時間・独学と通信講座の選び方・転職への活かし方まで、パソコンスキルに自信をつけたい方に向けてやさしくまとめました。",
-    "ai_resilience_rank": 33,
+    "ai_resilience_rank": 34,
     "ai_resilience_note": "独占業務なし。Word・Excel等の操作はAIによる効率化が進む領域だが、出力の確認・目的設計・業務改善など人の判断が残り、AIを使いこなす前提となるOfficeの基礎スキルとして位置づく（編集部見解）。"
   }
 ]
