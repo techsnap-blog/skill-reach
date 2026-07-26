@@ -369,3 +369,23 @@
 @media (max-width: 1024px) and (min-width: 769px) {
   .article-layout { grid-template-columns: 1fr 220px; }
 }
+
+/* ============================================================
+   本文中のリンクを「リンクと分かる」見た目にする（2026-07-27）
+   style.css の a { color: inherit; text-decoration: none; } により、
+   記事本文の内部リンクが地の文と同じ見た目になり気づけなかったため、
+   .article-content 内のリンクだけブランドカラー＋下線で区別する。
+   アフィリエイトボタン（.aff-btn）は独自の配色を持つため除外する。
+   ============================================================ */
+.article-content a:not(.aff-btn) {
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(31,58,95,0.35);
+  padding-bottom: 1px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.article-content a:not(.aff-btn):hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: rgba(31,58,95,0.06);
+}
