@@ -89,7 +89,7 @@
       <nav class="nav">
         <a href="#reviews">記事一覧</a>
         <a href="#categories">資格カテゴリ</a>
-        <a href="#ranking">資格ランキング</a>
+        <a href="#career-support">転職支援サイト</a>
       </nav>
       <button class="menu-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="mobile-nav">
         <span></span><span></span><span></span>
@@ -98,7 +98,7 @@
     <nav class="mobile-nav" id="mobile-nav">
       <a href="#reviews">記事一覧</a>
       <a href="#categories">資格カテゴリ</a>
-      <a href="#ranking">資格ランキング</a>
+      <a href="#career-support">転職支援サイト</a>
     </nav>
   </header>
 
@@ -689,48 +689,20 @@
       </div>
     </section>
 
-    <!-- Ranking -->
-    <section class="ranking" id="ranking">
+    <!-- Career support services -->
+    <section class="career" id="career-support">
       <div class="container">
-        <h2 class="section-title">AI時代おすすめランキング</h2>
-        <ol class="rank-list">
-          <li class="rank-item">
-            <span class="rank-num">1</span>
-            <div class="rank-body">
-              <span class="tag sm">国家資格</span>
-              <a href="articles/denkikoji2-introduction.html">第二種電気工事士とは？未経験から手に職を目指せる国家資格を初心者向けに解説</a>
-            </div>
-          </li>
-          <li class="rank-item">
-            <span class="rank-num">2</span>
-            <div class="rank-body">
-              <span class="tag sm">国家資格</span>
-              <a href="articles/shoubou-setsubishi-introduction.html">消防設備士とは？難易度・合格率・仕事内容・将来性を初心者向けに解説</a>
-            </div>
-          </li>
-          <li class="rank-item">
-            <span class="rank-num">3</span>
-            <div class="rank-body">
-              <span class="tag sm">国家資格</span>
-              <a href="articles/denken3-introduction.html">電験三種とは？AI時代でも価値がある理由を初心者向けに解説</a>
-            </div>
-          </li>
-          <li class="rank-item">
-            <span class="rank-num">4</span>
-            <div class="rank-body">
-              <span class="tag sm">国家資格</span>
-              <a href="articles/cpa-introduction.html">公認会計士とは？難易度・勉強時間・独学・将来性を初心者向けに解説</a>
-            </div>
-          </li>
-          <li class="rank-item">
-            <span class="rank-num">5</span>
-            <div class="rank-body">
-              <span class="tag sm">国家資格</span>
-              <a href="articles/shakai-fukushishi-introduction.html">社会福祉士とは？受験資格・難易度・仕事内容を初心者向けに解説</a>
-            </div>
-          </li>
-        </ol>
-        <p class="rank-disclaimer" style="font-size:0.72rem;color:var(--text-sub);margin-top:16px;text-align:center;">※本ランキングは、独占業務の有無や個別判断の必要性など「AIに代替されにくいか」という観点に基づくSkillReach編集部独自の見解です。公的な統計・調査データではありません。</p>
+        <p class="career-eyebrow">CAREER SUPPORT</p>
+        <h2 class="section-title">転職支援サイト一覧</h2>
+        <p class="career-lead">資格を仕事につなげたい方に向けて、転職活動をサポートしてくれるサービスをまとめました。得意な業界やサポート内容を比べながら、自分に合うサービスを探してみてください。</p>
+        <ul class="career-list" id="career-list"></ul>
+        <noscript>
+          <p class="career-noscript">転職支援サイトの一覧は、ブラウザのJavaScriptを有効にすると表示されます。</p>
+        </noscript>
+        <div class="career-more-wrap" id="career-more-wrap" hidden>
+          <button class="btn-show-more" type="button" id="career-more-btn" aria-expanded="false" aria-controls="career-list">転職支援サイトをもっと見る</button>
+        </div>
+        <p class="career-disclaimer">※本ページにはプロモーションが含まれています。サービスの内容や募集状況は変更される場合があるため、最新情報は各公式サイトでご確認ください。</p>
       </div>
     </section>
 
@@ -744,6 +716,7 @@
 
   </div><!-- /content-section -->
 
-  <script src="js/main.js?v=5"></script>
+  <script src="js/career-services.js?v=1"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>

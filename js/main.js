@@ -110,12 +110,17 @@
       scrollToListTop();
     });
   });
-  document.querySelectorAll('a[href="#ranking"]').forEach(link => {
+  /* 「転職支援サイト」リンク: 一覧セクションへ滑らかにスクロールする。
+     固定ヘッダーに見出しが隠れないよう、CSSのscroll-margin-topを尊重して着地させる
+     （中央揃えだと一覧が長い場合に見出しが画面外へ出るため上端着地にする）。 */
+  document.querySelectorAll('a[href="#career-support"]').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       setMenu(false);
-      const target = document.getElementById('ranking');
-      if (target) smoothScrollToCenter(target);
+      const target = document.getElementById('career-support');
+      if (!target) return;
+      const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+      smoothScrollTo(window.scrollY + target.getBoundingClientRect().top - margin);
     });
   });
 
@@ -434,18 +439,70 @@
       );
     });
 
-    /* === Ranking items === */
-    gsap.utils.toArray('.rank-item').forEach((item, i) => {
-      gsap.fromTo(item,
-        { opacity: 0, x: -18 },
-        {
-          opacity: 1, x: 0, duration: 0.5, ease: 'power2.out',
-          delay: i * 0.07,
-          scrollTrigger: { trigger: item, start: 'top 90%', once: true }
-        }
-      );
-    });
+    /* 転職支援サイト一覧(.career-card)はJS描画かつ「もっと見る」で
+       表示/非表示が切り替わるため、GSAPでopacityを持たない
+       （CSS側のtransitionが所有する。Animation Ownershipの分離）。 */
   }
+
+  /* ------ 記事ページ: 転職支援サイト一覧への共通CTA ------
+     全記事のHTMLへ同じブロックを貼り付ける代わりに、全記事が読み込む
+     この main.js から冒頭・末尾の2箇所へ自動挿入する。
+     新規記事は既存記事をコピーして作るため（＝main.jsを読み込むため）、
+     追加作業なしで同じCTAが入る。
+     リンク先はヘッダーの既存リンクから解決するので、記事の階層に依存しない。 */
+  (function insertCareerCta() {
+    const content = document.querySelector('.article-content');
+    if (!content) return;                       /* トップページでは何もしない */
+    if (content.querySelector('.career-cta')) return; /* 二重挿入防止 */
+
+    const navLink = document.querySelector('a[href$="index.html#career-support"]');
+    const href = navLink ? navLink.getAttribute('href') : '../index.html#career-support';
+
+    function buildCta(variant, title, body, label) {
+      const box = document.createElement('aside');
+      box.className = 'career-cta career-cta--' + variant;
+      box.setAttribute('aria-label', '転職支援サイト一覧のご案内');
+
+      const h = document.createElement('p');
+      h.className = 'career-cta-title';
+      h.textContent = title;
+      box.appendChild(h);
+
+      const p = document.createElement('p');
+      p.className = 'career-cta-text';
+      p.textContent = body;
+      box.appendChild(p);
+
+      const a = document.createElement('a');
+      a.className = 'career-cta-btn';
+      a.href = href;
+      a.textContent = label;
+      box.appendChild(a);
+      return box;
+    }
+
+    /* 冒頭: 導入文・「この記事でわかること」の直後＝最初のh2の前に置き、
+       タイトルとリード文の読みやすさを妨げないようにする。 */
+    const firstH2 = content.querySelector('h2');
+    const topCta = buildCta(
+      'top',
+      '資格を仕事につなげたい方へ',
+      '転職活動を支援してくれるサービスを一覧で確認できます。',
+      '転職支援サイト一覧を見る'
+    );
+    if (firstH2) content.insertBefore(topCta, firstH2);
+    else content.insertBefore(topCta, content.firstChild);
+
+    /* 末尾: 本文のまとめ（おわりに）の後、サイドバー・フッターの前。 */
+    content.appendChild(
+      buildCta(
+        'bottom',
+        '資格を取ったあとの働き方も考えてみませんか？',
+        '資格は、取得することだけがゴールではありません。身につけた知識を仕事にどう活かせるか考えたい方は、転職支援サービスの特徴も確認してみてください。',
+        '転職支援サイト一覧を確認する'
+      )
+    );
+  })();
 
   /* ------ Init ------ */
   if (document.readyState === 'loading') {

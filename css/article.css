@@ -377,15 +377,54 @@
    .article-content 内のリンクだけブランドカラー＋下線で区別する。
    アフィリエイトボタン（.aff-btn）は独自の配色を持つため除外する。
    ============================================================ */
-.article-content a:not(.aff-btn) {
+.article-content a:not(.aff-btn):not(.career-cta-btn) {
   color: var(--accent);
   font-weight: 600;
   border-bottom: 1px solid rgba(31,58,95,0.35);
   padding-bottom: 1px;
   transition: border-color 0.15s, background 0.15s;
 }
-.article-content a:not(.aff-btn):hover {
+.article-content a:not(.aff-btn):not(.career-cta-btn):hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
   background: rgba(31,58,95,0.06);
+}
+
+/* ============================================================
+   転職支援サイト一覧への共通CTA（js/main.js が全記事へ自動挿入）
+   記事冒頭（--top）は控えめに、記事末尾（--bottom）はやや強めに。
+   アフィリエイトではなくサイト内リンクなので、配色は本文寄りに抑える。
+   ============================================================ */
+.career-cta {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg2);
+  padding: 18px 20px;
+  margin: 28px 0;
+}
+.career-cta--bottom {
+  border-left: 3px solid var(--accent);
+  margin-top: 40px;
+}
+.career-cta-title {
+  font-size: 0.95rem; font-weight: 700; color: var(--text);
+  line-height: 1.7; margin: 0 0 8px;
+}
+.career-cta-text {
+  font-size: 0.85rem; color: var(--text-muted); line-height: 1.85;
+  margin: 0 0 14px;
+}
+.career-cta-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px;
+  background: var(--accent); color: #F7F6F3;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.03em;
+  padding: 11px 22px; border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+.career-cta-btn:hover { background: var(--accent-warm); color: #F7F6F3; }
+@media (max-width: 600px) {
+  .career-cta { padding: 16px 16px 18px; }
+  .career-cta-btn { display: flex; width: 100%; min-height: 48px; }
 }

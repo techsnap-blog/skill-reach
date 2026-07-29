@@ -550,46 +550,119 @@ h1, h2, h3, p, li, td, th, a, .card-excerpt { overflow-wrap: anywhere; word-brea
 .tag.sm { font-size: 0.6rem; padding: 2px 7px; }
 .date { font-family: var(--font-sans); font-size: 0.68rem; color: var(--text-sub); }
 
-/* ===== RANKING ===== */
-.ranking {
+/* ===== CAREER SUPPORT （転職支援サイト一覧） ===== */
+.career {
   padding: 72px 0;
-  scroll-margin-top: 80px; /* 固定ヘッダーに隠れないよう余白を確保 */
+  /* 固定ヘッダー(60px)に見出しが隠れないよう余白を確保 */
+  scroll-margin-top: 80px;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   /* 記事一覧(Article Surface)と同じ半透明にし、Heroが透けて見えるよう統一 */
   background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255,248,235,0.25) 0%, transparent 60%);
 }
-.rank-list {
+.career-eyebrow {
+  font-family: var(--font-sans); font-size: 0.62rem; font-weight: 700;
+  color: var(--text-sub); letter-spacing: 0.22em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.career .section-title { margin-bottom: 14px; }
+.career-lead {
+  font-size: 0.85rem; color: var(--text-muted); line-height: 1.9;
+  max-width: 760px; margin-bottom: 30px;
+}
+.career-noscript {
+  font-size: 0.85rem; color: var(--text-muted); line-height: 1.9;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 18px; background: var(--surface);
+}
+
+.career-list {
   list-style: none;
+  display: flex; flex-direction: column; gap: 14px;
+  /* JS描画によるレイアウトシフトを目立たせないための最小高さ */
+  min-height: 320px;
+}
+.career-card {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: 20px 22px;
   background: rgba(248,246,242, 0.55);
   backdrop-filter: blur(16px) saturate(120%);
   -webkit-backdrop-filter: blur(16px) saturate(120%);
+  transition: border-color 0.25s, box-shadow 0.25s, opacity 0.35s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
 }
-.rank-item {
-  display: flex; align-items: center; gap: 18px;
-  padding: 16px 22px;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.18s;
+.career-card:hover { border-color: var(--border-light); box-shadow: var(--shadow-card); }
+.career-card.is-collapsed { display: none; }
+.career-card.is-revealing { opacity: 0; transform: translateY(12px); }
+
+.career-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.career-pr {
+  font-family: var(--font-sans); font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-muted); background: var(--surface2);
+  border: 1px solid var(--border); border-radius: 3px;
+  padding: 2px 6px; flex-shrink: 0;
 }
-.rank-item:last-child { border-bottom: none; }
-.rank-item:hover { background: var(--surface2); }
-.rank-num {
-  font-family: var(--font-sans); font-size: 1.8rem; font-weight: 800;
-  color: var(--text-sub); width: 40px; text-align: center; flex-shrink: 0;
-  letter-spacing: -0.02em;
+
+/* PCは横幅を活かして［情報｜ボタン］の2カラム、スマホは1カラム縦積み */
+.career-card-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 20px;
+  align-items: center;
 }
-.rank-item:nth-child(1) .rank-num { color: var(--gold); }
-.rank-item:nth-child(2) .rank-num { color: #9a9490; }
-.rank-item:nth-child(3) .rank-num { color: #8a7060; }
-.rank-body { flex: 1; display: flex; flex-direction: column; gap: 3px; }
-.rank-body a { font-size: 0.87rem; font-weight: 500; color: var(--text); }
-.rank-body a:hover { color: var(--accent); }
-.rank-score {
-  font-family: var(--font-sans); font-size: 0.82rem;
-  font-weight: 700; color: var(--green); flex-shrink: 0;
+.career-card-info { min-width: 0; }
+.career-logo { margin-bottom: 8px; }
+.career-logo img { max-width: 160px; height: auto; display: block; }
+.career-name {
+  font-size: 0.98rem; font-weight: 700; line-height: 1.55;
+  color: var(--text); margin-bottom: 7px;
+  overflow-wrap: anywhere;
+}
+.career-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.85; }
+
+.career-fit {
+  margin-top: 12px; padding: 10px 14px;
+  border-left: 2px solid var(--accent-warm);
+  background: var(--surface2);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.career-fit-label {
+  font-family: var(--font-sans); font-size: 0.63rem; font-weight: 700;
+  letter-spacing: 0.1em; color: var(--accent); margin-bottom: 3px;
+}
+.career-fit-text { font-size: 0.79rem; color: var(--text); line-height: 1.8; }
+.career-note { margin-top: 10px; font-size: 0.72rem; color: var(--text-sub); line-height: 1.8; }
+
+.career-actions { display: flex; justify-content: flex-end; }
+.career-btn {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 100%; min-height: 46px;
+  background: var(--accent); color: #F7F6F3;
+  font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 12px 20px; border-radius: 999px;
+  text-align: center; transition: opacity 0.18s, background 0.18s;
+}
+.career-btn:hover { background: var(--accent-warm); color: #F7F6F3; }
+/* 濃紺のボタン上ではブラウザ既定のフォーカスリングが見えにくいため、
+   明示的にコントラストの取れたリングを出す（フォーカス表示は消さない）。 */
+.career-btn:focus-visible,
+#career-more-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.career-more-wrap { display: flex; justify-content: center; margin-top: 28px; }
+.career-disclaimer {
+  font-size: 0.72rem; color: var(--text-sub); line-height: 1.9;
+  margin-top: 24px; text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-card { transition: border-color 0.25s, box-shadow 0.25s; }
+  .career-card.is-revealing { opacity: 1; transform: none; }
 }
 
 /* ===== X SECTION ===== */
@@ -733,22 +806,20 @@ h1, h2, h3, p, li, td, th, a, .card-excerpt { overflow-wrap: anywhere; word-brea
   .section-title { font-size: 0.7rem; margin-bottom: 26px; }
   .btn-show-more { padding: 13px 30px; font-size: 0.85rem; min-height: 46px; }
 
-  /* ===== ランキング: 番号と本文を縦積みにして、
-     長いタイトルが番号や資格区分に潰されないようにする ===== */
-  .ranking { padding: 56px 0; }
-  .rank-item {
-    align-items: flex-start;
-    gap: 12px;
-    padding: 16px 16px 18px;
-  }
-  .rank-num {
-    width: auto; min-width: 26px; text-align: left;
-    font-size: 1.5rem; line-height: 1.5;
-  }
-  .rank-body { min-width: 0; align-items: flex-start; gap: 6px; }
-  .rank-body .tag.sm { font-size: 0.7rem; padding: 3px 9px; }
-  .rank-body a { font-size: 0.92rem; line-height: 1.7; }
-  .rank-disclaimer { font-size: 0.75rem !important; line-height: 1.8; text-align: left !important; }
+  /* ===== 転職支援サイト一覧: スマホは1列に縦積みし、
+     ボタンを幅いっぱいにしてタップ領域を確保する ===== */
+  .career { padding: 56px 0; }
+  .career-list { min-height: 0; }
+  .career-card { padding: 18px 16px 20px; }
+  .career-card-main { grid-template-columns: 1fr; gap: 16px; }
+  .career-actions { justify-content: stretch; }
+  .career-btn { width: 100%; font-size: 0.86rem; min-height: 48px; }
+  .career-name { font-size: 1rem; }
+  .career-desc { font-size: 0.86rem; }
+  .career-fit-text { font-size: 0.84rem; }
+  .career-lead { font-size: 0.88rem; }
+  .career-pr { font-size: 0.64rem; }
+  .career-disclaimer { font-size: 0.75rem; line-height: 1.85; text-align: left; }
 
   /* ===== フッター ===== */
   .site-footer { padding: 48px 0 32px; }
