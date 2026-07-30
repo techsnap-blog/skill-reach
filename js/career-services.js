@@ -70,22 +70,25 @@
       published: true,
     },
 
-    /* --- 提携申請中の枠（本番非表示） ------------------------------
-       TODO: 提携承認後、正式なサービス情報・ロゴ・アフィリエイトURLへ差し替え、
-             確認後に published を true にする */
     {
-      name: '転職支援サービス04',
-      category: '（提携申請中）',
-      description: '（提携承認後にサービス概要を記載する）',
-      recommendedFor: '（提携承認後に対象読者を記載する）',
-      affiliateUrl: '',
-      trackingPixel: '',
+      name: 'ELECAREER（エレキャリア）',
+      category: '電気・設備工事',
+      description:
+        '電気工事士・施工管理技士の求人に特化した、業界専門の転職サイトです。',
+      recommendedFor:
+        '電気工事士・施工管理技士としての資格や現場経験を活かして転職先を探したい方',
+      affiliateUrl: 'https://h.accesstrade.net/sp/cc?rk=0100q2yd00ov8p',
+      trackingPixel: 'https://h.accesstrade.net/sp/rr?rk=0100q2yd00ov8p',
       logo: '',
       logoAlt: '',
       buttonLabel: '公式サイトを見る',
       pr: true,
-      published: false,
+      published: true,
     },
+
+    /* --- 提携申請中の枠（本番非表示） ------------------------------
+       TODO: 提携承認後、正式なサービス情報・ロゴ・アフィリエイトURLへ差し替え、
+             確認後に published を true にする */
     {
       // TODO: 提携承認後、正式なサービス情報・ロゴ・アフィリエイトURLへ差し替え、
       //       確認後に published を true にする
