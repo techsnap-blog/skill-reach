@@ -101,6 +101,7 @@
       logo: '',
       logoAlt: '',
       buttonLabel: '公式サイトを見る',
+      buttonVariant: 'green',
       pr: true,
       published: true,
     },
@@ -214,7 +215,7 @@
     main.appendChild(info);
 
     const actions = el('div', 'career-actions');
-    const a = el('a', 'career-btn', s.buttonLabel);
+    const a = el('a', 'career-btn' + (s.buttonVariant === 'green' ? ' is-green' : ''), s.buttonLabel);
     a.href = s.affiliateUrl;
     a.target = '_blank';
     a.rel = 'nofollow sponsored noopener noreferrer';

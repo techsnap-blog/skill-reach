@@ -646,6 +646,10 @@ h1, h2, h3, p, li, td, th, a, .card-excerpt { overflow-wrap: anywhere; word-brea
   text-align: center; transition: opacity 0.18s, background 0.18s;
 }
 .career-btn:hover { background: var(--accent-warm); color: #F7F6F3; }
+/* 転職サイト以外（退職代行など）を色で区別するための緑系ボタン */
+.career-btn.is-green { background: var(--green); }
+.career-btn.is-green:hover { background: #3D6349; color: #F7F6F3; }
+.career-btn.is-green:focus-visible { outline-color: var(--green); }
 /* 濃紺のボタン上ではブラウザ既定のフォーカスリングが見えにくいため、
    明示的にコントラストの取れたリングを出す（フォーカス表示は消さない）。 */
 .career-btn:focus-visible,
