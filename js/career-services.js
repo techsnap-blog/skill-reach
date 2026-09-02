@@ -90,19 +90,19 @@
        TODO: 提携承認後、正式なサービス情報・ロゴ・アフィリエイトURLへ差し替え、
              確認後に published を true にする */
     {
-      // TODO: 提携承認後、正式なサービス情報・ロゴ・アフィリエイトURLへ差し替え、
-      //       確認後に published を true にする
-      name: '転職支援サービス05',
-      category: '（提携申請中）',
-      description: '（提携承認後にサービス概要を記載する）',
-      recommendedFor: '（提携承認後に対象読者を記載する）',
-      affiliateUrl: '',
+      name: '退職代行ニコイチ',
+      category: '退職代行',
+      description:
+        '14年以上の実績がある退職代行サービスです。業界最安値クラスの料金で、退職後の転職サポートも用意されています。',
+      recommendedFor:
+        '自分で退職を切り出しにくい方、費用を抑えて確実に退職し、次のキャリアへ進みたい方',
+      affiliateUrl: 'https://t.felmat.net/fmcl?ak=P3345A.1.T654745.J1392263',
       trackingPixel: '',
       logo: '',
       logoAlt: '',
       buttonLabel: '公式サイトを見る',
       pr: true,
-      published: false,
+      published: true,
     },
     {
       // TODO: 提携承認後、正式なサービス情報・ロゴ・アフィリエイトURLへ差し替え、
