@@ -206,6 +206,7 @@
 .aff-btn.tac { background: #6E7F8D; color: #fff; }
 .aff-btn.sat { background: #3F6F63; color: #fff; }
 .aff-btn.shikakutaisaku { background: #5B5A80; color: #fff; }
+.aff-btn.daiei { background: #B5793A; color: #fff; }
 .affiliate-note {
   font-family: var(--font-ui);
   font-size: 0.7rem; color: var(--bark); margin-bottom: 0;
