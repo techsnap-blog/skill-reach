@@ -21,7 +21,7 @@
   'use strict';
 
   /* 初期表示件数。これを超える公開カードがある場合のみ展開ボタンを出す。 */
-  const INITIAL_VISIBLE = 5;
+  const INITIAL_VISIBLE = 10;
 
   /* ------------------------------------------------------------
      サービスデータ
@@ -98,6 +98,22 @@
         '自分で退職を切り出しにくい方、費用を抑えて確実に退職し、次のキャリアへ進みたい方',
       affiliateUrl: 'https://t.felmat.net/fmcl?ak=P3345A.1.T654745.J1392263',
       trackingPixel: '',
+      logo: '',
+      logoAlt: '',
+      buttonLabel: '公式サイトを見る',
+      buttonVariant: 'green',
+      pr: true,
+      published: true,
+    },
+    {
+      name: 'ZENの退職代行',
+      category: '退職代行',
+      description:
+        '弁護士法人が運営する退職代行サービスです。退職意思の会社への通知に加え、有給消化・未払給与・残業代などの交渉や、離職票・退職金の請求といった法的対応にも対応しています。',
+      recommendedFor:
+        '会社と直接やり取りせずに退職したい方、未払い残業代や有給消化など労働条件の交渉も任せたい方',
+      affiliateUrl: 'https://h.accesstrade.net/sp/cc?rk=0100q5pa00ov8p',
+      trackingPixel: 'https://h.accesstrade.net/sp/rr?rk=0100q5pa00ov8p',
       logo: '',
       logoAlt: '',
       buttonLabel: '公式サイトを見る',
