@@ -85,6 +85,21 @@
       pr: true,
       published: true,
     },
+    {
+      name: 'ASSIGN（アサイン）',
+      category: '若手ハイエンド',
+      description:
+        '20代〜30代の若手ハイクラス層を対象にした転職サイトです。',
+      recommendedFor:
+        'キャリアの方向性を整理しながら、次のステップを検討したい若手の方',
+      affiliateUrl: 'https://h.accesstrade.net/sp/cc?rk=0100p83l00ov8p',
+      trackingPixel: 'https://h.accesstrade.net/sp/rr?rk=0100p83l00ov8p',
+      logo: '',
+      logoAlt: '',
+      buttonLabel: '公式サイトを見る',
+      pr: true,
+      published: true,
+    },
 
     /* --- 提携申請中の枠（本番非表示） ------------------------------
        TODO: 提携承認後、正式なサービス情報・ロゴ・アフィリエイトURLへ差し替え、
